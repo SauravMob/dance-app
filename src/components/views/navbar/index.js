@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 
@@ -9,21 +9,17 @@ const Navbars = () => {
   const [position, setPosition] = useState(0)
 
   const handleMouseMove = (event) => {
-    if (event.clientX > 430 && event.clientX < 964) {
+    if (event.clientX > 432 && event.clientX < 962) {
       setPosition(event.clientX)
     }
   }
 
-  useEffect(() => {
-    document.addEventListener('mousemove', handleMouseMove)
-
-    return () => {
-      document.removeEventListener('mousemove', handleMouseMove)
-    }
-  }, [])
-
   const onActiveChange = (tab) => {
     setActiveLink(tab)
+    if (tab === '1') setPosition(478)
+    else if (tab === '2') setPosition(610)
+    else if (tab === '3') setPosition(756)
+    else if (tab === '4') setPosition(888)
   }
 
   const onNavEnter = (value) => {
@@ -35,7 +31,7 @@ const Navbars = () => {
     <Navbar expand="lg" className="mt-4 bg-body-tertiary">
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav onMouseEnter={() => onNavEnter(true)} onMouseLeave={() => onNavEnter(false)} className='mouse-follower'>
+        <Nav onMouseMove={handleMouseMove} onMouseEnter={() => onNavEnter(true)} onMouseLeave={() => onNavEnter(false)} className='mouse-follower'>
           <Nav.Link onMouseEnter={() => onActiveChange('1')} className={activeLink === '1' && 'link-active'}>Let's Explore</Nav.Link>
           <Nav.Link onMouseEnter={() => onActiveChange('2')} className={activeLink === '2' && 'link-active'}>Let's Meet</Nav.Link>
           <Nav.Link onMouseEnter={() => onActiveChange('3')} className={activeLink === '3' && 'link-active'}>Let's Attend</Nav.Link>

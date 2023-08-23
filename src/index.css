@@ -5,17 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-.App {
-  height: 100vh;
-  width: 100vw;
-  background-color: rgb(92 94 8 / 28%);
 }
 
 /* Navbar css */
@@ -29,6 +24,7 @@ code {
   position: fixed;
   top: 3%;
   left: 30%;
+  z-index: 1;
 }
 
 @media screen and (min-width: 992px) {
@@ -61,6 +57,7 @@ code {
   background: yellow;
   color: white;
   z-index: 1;
+  border-radius: 30px;
 }
 
 .follower {
@@ -70,5 +67,42 @@ code {
   border-radius: 30px;
   position: absolute;
   transform: translate(-327%, -123%);
-  transition: left 0.1s ease; /* Add transitions for smooth movement */
+  transition: left 0.1s ease;
+}
+
+/* Background Mover */
+
+.majorFollower {
+  width: 300px;
+  height: 300px;
+  background-color: rgb(99, 99, 120);
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  opacity: 15%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 88.2);
+  transition: opacity 0.3s ease;
+}
+
+/* Parallax styles */
+.parallaxBg {
+  background: #dbb20cf5;
+  height: 100vh;
+  width: 100vw;
+}
+
+.parallax-1 {
+  height: 665px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.parallax-2 {
+  height: 800px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }
