@@ -13,6 +13,10 @@ code {
     monospace;
 }
 
+::-webkit-scrollbar {
+  width: 0em;
+}
+
 /* Navbar css */
 
 #basic-navbar-nav {
@@ -42,6 +46,7 @@ code {
   height: 100%;
   display: flex;
   align-items: center;
+  font-weight: 500;
   border-radius: 20px;
   padding-left: 30px !important;
   padding-right: 30px !important;
@@ -54,7 +59,7 @@ code {
 }
 
 .link-active {
-  background: yellow;
+  background: rgb(0, 14, 58);
   color: white;
   z-index: 1;
   border-radius: 30px;
@@ -63,11 +68,16 @@ code {
 .follower {
   width: 140px;
   height: 50px;
-  background-color: yellow;
+  background: rgb(0, 14, 58);
+  color: white;
   border-radius: 30px;
   position: absolute;
   transform: translate(-327%, -123%);
   transition: left 0.1s ease;
+}
+
+.nav-link:hover {
+  color: rgb(255 255 255 / 80%);
 }
 
 /* Background Mover */
@@ -86,7 +96,7 @@ code {
 
 /* Parallax styles */
 .parallaxBg {
-  background: #dbb20cf5;
+  background: #755ae1;
   height: 100vh;
   width: 100vw;
 }
@@ -99,10 +109,29 @@ code {
   align-items: center;
 }
 
-.parallax-2 {
-  height: 800px;
-  text-align: center;
-  justify-content: center;
-  display: flex;
-  align-items: center;
+.top-logo {
+  height: 315px;
+  z-index: 2;
+  position: relative;
+  top: -50px;
+  left: 30px;
+  color: rgb(223 206 206);
+}
+
+.bottom-logo {
+  height: 315px;
+  position: relative;
+  top: 95px;
+  left: -37px;
+  color: rgb(223 206 206);
+}
+
+.video-box {
+  position: relative;
+  height: 250px;
+  width: 250px;
+  top: -453px;
+  left: 556px;
+  border-radius: 20px;
+  background-color: #a5a5a5;
 }
