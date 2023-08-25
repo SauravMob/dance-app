@@ -17,40 +17,36 @@ code {
   width: 0em;
 }
 
+/* Theme Color changing */
+
+.App-light .link-active {
+  background: rgb(206, 134, 19);
+}
+
+.App-dark .link-active {
+  background: rgb(0, 14, 58);
+}
+
+.App-dark .follower {
+  background: rgb(0, 14, 58);
+}
+
+.App-light .follower {
+  background: rgb(206, 134, 19);
+}
+
+.navbar-dark {
+  background: linear-gradient(90deg, rgba(12, 8, 80, 1) 0%, rgba(59, 64, 138, 1) 44%, rgba(63, 77, 128, 1) 90%, rgba(63, 87, 150, 1) 100%);
+}
+
+.navbar-light {
+  background: linear-gradient(90deg, rgba(237, 161, 10, 1) 0%, rgba(188, 138, 25, 1) 45%, rgba(214, 167, 38, 1) 100%);
+}
+
 /* Navbar css */
 
 #basic-navbar-nav {
   place-content: center;
-}
-
-.navbar {
-  background-color: transparent !important;
-  position: fixed;
-  top: 3%;
-  left: 30%;
-  z-index: 1;
-}
-
-@media screen and (min-width: 992px) {
-  .navbar-nav {
-    background: aliceblue;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 25px;
-  }
-}
-
-.nav-link {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  font-weight: 500;
-  border-radius: 20px;
-  padding-left: 30px !important;
-  padding-right: 30px !important;
-  position: relative;
 }
 
 .mouse-follower {
@@ -59,7 +55,6 @@ code {
 }
 
 .link-active {
-  background: rgb(0, 14, 58);
   color: white;
   z-index: 1;
   border-radius: 30px;
@@ -68,7 +63,6 @@ code {
 .follower {
   width: 140px;
   height: 50px;
-  background: rgb(0, 14, 58);
   color: white;
   border-radius: 30px;
   position: absolute;
@@ -95,8 +89,14 @@ code {
 }
 
 /* Parallax styles */
-.parallaxBg {
-  background: #755ae1;
+.parallaxBg-dark {
+  background: linear-gradient(90deg, rgba(12, 8, 80, 1) 0%, rgba(59, 64, 138, 1) 44%, rgba(63, 77, 128, 1) 90%, rgba(63, 87, 150, 1) 100%);
+  height: 100vh;
+  width: 100vw;
+}
+
+.parallaxBg-light {
+  background: linear-gradient(90deg, rgba(237, 161, 10, 1) 0%, rgba(188, 138, 25, 1) 45%, rgba(214, 167, 38, 1) 100%);
   height: 100vh;
   width: 100vw;
 }
@@ -134,4 +134,148 @@ code {
   left: 556px;
   border-radius: 20px;
   background-color: #a5a5a5;
+}
+
+/* ToggleSwitch css */
+.switch {
+  position: absolute;
+  display: inline-block;
+  width: 64px;
+  height: 34px;
+  top: 16px;
+  right: 22px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #73C0FC;
+  transition: .4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 30px;
+  width: 30px;
+  border-radius: 20px;
+  left: 2px;
+  bottom: 2px;
+  z-index: 2;
+  background-color: #e8e8e8;
+  transition: .4s;
+}
+
+.sun svg {
+  position: absolute;
+  top: 6px;
+  left: 36px;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+}
+
+.moon svg {
+  fill: #73C0FC;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+}
+
+/* .switch:hover */
+.sun svg {
+  animation: rotate 15s linear infinite;
+}
+
+@keyframes rotate {
+
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* .switch:hover */
+.moon svg {
+  animation: tilt 5s linear infinite;
+}
+
+@keyframes tilt {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-10deg);
+  }
+
+  75% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.input:checked+.slider {
+  background-color: #183153;
+}
+
+.input:focus+.slider {
+  box-shadow: 0 0 1px #183153;
+}
+
+.input:checked+.slider:before {
+  transform: translateX(30px);
+}
+
+@media screen and (min-width: 768px) {
+
+  /* NAVBAR STYLES FOR LAPTOP */
+
+  .navbar {
+    background-color: transparent !important;
+    background: transparent !important;
+    position: relative;
+    z-index: 1;
+  }
+
+  .navbar-nav {
+    background: aliceblue;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+  }
+
+  .nav-link {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    border-radius: 20px;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    position: relative;
+  }
 }

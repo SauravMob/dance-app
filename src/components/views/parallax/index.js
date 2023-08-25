@@ -1,8 +1,11 @@
 import React from 'react'
 
-const Parallax = () => {
+const Home = (props) => {
+
+  const { theme } = props
+
   return (
-    <div className='parallaxBg'>
+    <div className={`parallaxBg-${theme}`}>
       <div className='parallax-1'>
         <svg className='top-logo' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 831 402">
           <g>
@@ -41,4 +44,4 @@ const Parallax = () => {
   )
 }
 
-export default Parallax
+export default Home
