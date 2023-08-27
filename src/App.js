@@ -2,13 +2,16 @@ import { useEffect, useState } from 'react';
 import Navbar from './components/views/navbar'
 import Home from './components/views/home';
 import { Row } from 'react-bootstrap';
+import VideoCard from './components/views/home/videoCard';
+import universe from './components/assets/video/universe.mp4'
+import sunset from './components/assets/video/sunset.mp4'
 
 const App = () => {
 
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [scroll, setScroll] = useState(0)
   const [device, setDevice] = useState('LAPTOP')
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme] = useState('dark')
 
   const handleMouseMove = (event) => {
     setPosition({ x: event.clientX, y: event.clientY + scroll });
@@ -55,6 +58,7 @@ const App = () => {
         <Navbar device={device} theme={theme} handleTheme={handleTheme} />
       </Row>
       {device === 'LAPTOP' && <Home theme={theme} />}
+      {theme === 'dark' ? <VideoCard src={universe} /> : <VideoCard src={sunset} />}
     </div>
   )
 }

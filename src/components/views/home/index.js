@@ -3,8 +3,8 @@ import React from 'react'
 const Home = (props) => {
   const { theme } = props
   return (
-    <div className={`parallaxBg-${theme}`}>
-      <div className='parallax-1'>
+    <div className={`homeBg-${theme}`}>
+      <div className='home'>
         <svg className='top-logo' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 831 402">
           <g>
             <path d="M336.98,53.98h-25.74V195.35h25.74V53.98Z" fill="currentColor"></path>
