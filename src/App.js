@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import Navbar from './components/views/navbar/index'
-import Home from './components/views/parallax';
+import Navbar from './components/views/navbar'
+import Home from './components/views/home';
+import { Row } from 'react-bootstrap';
 
 const App = () => {
 
@@ -50,8 +51,10 @@ const App = () => {
   return (
     <div className={`App-${theme}`} onMouseMove={handleMouseMove}>
       {device === 'LAPTOP' && <div className="majorFollower" style={{ left: position.x, top: position.y }}></div>}
-      <Navbar device={device} theme={theme} handleTheme={handleTheme} />
-      {/* {device === 'LAPTOP' && <Home theme={theme} />} */}
+      <Row className={`navbar-${theme}`}>
+        <Navbar device={device} theme={theme} handleTheme={handleTheme} />
+      </Row>
+      {device === 'LAPTOP' && <Home theme={theme} />}
     </div>
   )
 }

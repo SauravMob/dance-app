@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
 
 code {
@@ -26,11 +26,11 @@ code {
   background: linear-gradient(90deg, rgba(237, 161, 10, 1) 0%, rgba(188, 138, 25, 1) 45%, rgba(214, 167, 38, 1) 100%);
 }
 
-.navbar-dark .navbar{
+.navbar-dark .navbar {
   background: linear-gradient(90deg, rgba(12, 8, 80, 1) 0%, rgba(59, 64, 138, 1) 44%, rgba(63, 77, 128, 1) 90%, rgba(63, 87, 150, 1) 100%);
 }
 
-.navbar-light .navbar{
+.navbar-light .navbar {
   background: linear-gradient(90deg, rgba(237, 161, 10, 1) 0%, rgba(188, 138, 25, 1) 45%, rgba(214, 167, 38, 1) 100%);
 }
 
@@ -73,8 +73,7 @@ code {
 }
 
 /* Background Mover */
-
-/* .majorFollower {
+.majorFollower {
   width: 300px;
   height: 300px;
   background-color: rgb(99, 99, 120);
@@ -87,7 +86,7 @@ code {
 }
 
 /* Parallax styles */
-/* .parallaxBg-dark {
+.parallaxBg-dark {
   background: linear-gradient(90deg, rgba(12, 8, 80, 1) 0%, rgba(59, 64, 138, 1) 44%, rgba(63, 77, 128, 1) 90%, rgba(63, 87, 150, 1) 100%);
   height: 100vh;
   width: 100vw;
@@ -111,7 +110,7 @@ code {
   height: 315px;
   z-index: 2;
   position: relative;
-  top: -50px;
+  top: -100px;
   left: 30px;
   color: rgb(223 206 206);
 }
@@ -119,7 +118,7 @@ code {
 .bottom-logo {
   height: 315px;
   position: relative;
-  top: 95px;
+  top: 60px;
   left: -37px;
   color: rgb(223 206 206);
 }
@@ -128,11 +127,11 @@ code {
   position: relative;
   height: 250px;
   width: 250px;
-  top: -453px;
-  left: 556px;
+  top: -478px;
+  left: 41%;
   border-radius: 20px;
   background-color: #a5a5a5;
-} */
+}
 
 /* ToggleSwitch css */
 .switch {
@@ -247,7 +246,6 @@ code {
 @media screen and (min-width: 768px) {
 
   /* NAVBAR STYLES FOR LAPTOP */
-
   .navbar {
     background-color: transparent !important;
     background: transparent !important;
