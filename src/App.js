@@ -51,7 +51,7 @@ const App = () => {
     <div className={`App-${theme}`} onMouseMove={handleMouseMove}>
       {device === 'LAPTOP' && <div className="majorFollower" style={{ left: position.x, top: position.y }}></div>}
       <Navbar device={device} theme={theme} handleTheme={handleTheme} />
-      {device === 'LAPTOP' && <Home theme={theme} />}
+      {/* {device === 'LAPTOP' && <Home theme={theme} />} */}
     </div>
   )
 }

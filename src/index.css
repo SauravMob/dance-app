@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 code {
@@ -18,23 +18,6 @@ code {
 }
 
 /* Theme Color changing */
-
-.App-light .link-active {
-  background: rgb(206, 134, 19);
-}
-
-.App-dark .link-active {
-  background: rgb(0, 14, 58);
-}
-
-.App-dark .follower {
-  background: rgb(0, 14, 58);
-}
-
-.App-light .follower {
-  background: rgb(206, 134, 19);
-}
-
 .navbar-dark {
   background: linear-gradient(90deg, rgba(12, 8, 80, 1) 0%, rgba(59, 64, 138, 1) 44%, rgba(63, 77, 128, 1) 90%, rgba(63, 87, 150, 1) 100%);
 }
@@ -43,7 +26,32 @@ code {
   background: linear-gradient(90deg, rgba(237, 161, 10, 1) 0%, rgba(188, 138, 25, 1) 45%, rgba(214, 167, 38, 1) 100%);
 }
 
+.navbar-dark .navbar{
+  background: linear-gradient(90deg, rgba(12, 8, 80, 1) 0%, rgba(59, 64, 138, 1) 44%, rgba(63, 77, 128, 1) 90%, rgba(63, 87, 150, 1) 100%);
+}
+
+.navbar-light .navbar{
+  background: linear-gradient(90deg, rgba(237, 161, 10, 1) 0%, rgba(188, 138, 25, 1) 45%, rgba(214, 167, 38, 1) 100%);
+}
+
+.navbar-light .glider {
+  background-color: rgb(206, 134, 19);
+}
+
+.navbar-dark .glider {
+  background-color: rgb(59, 9, 159);
+}
+
 /* Navbar css */
+
+.glider {
+  position: absolute;
+  display: flex;
+  height: 50px;
+  width: 150px;
+  border-radius: 99px;
+  transition: 0.4s ease-out;
+}
 
 #basic-navbar-nav {
   place-content: center;
@@ -60,23 +68,13 @@ code {
   border-radius: 30px;
 }
 
-.follower {
-  width: 140px;
-  height: 50px;
-  color: white;
-  border-radius: 30px;
-  position: absolute;
-  transform: translate(-327%, -123%);
-  transition: left 0.1s ease;
-}
-
 .nav-link:hover {
   color: rgb(255 255 255 / 80%);
 }
 
 /* Background Mover */
 
-.majorFollower {
+/* .majorFollower {
   width: 300px;
   height: 300px;
   background-color: rgb(99, 99, 120);
@@ -89,7 +87,7 @@ code {
 }
 
 /* Parallax styles */
-.parallaxBg-dark {
+/* .parallaxBg-dark {
   background: linear-gradient(90deg, rgba(12, 8, 80, 1) 0%, rgba(59, 64, 138, 1) 44%, rgba(63, 77, 128, 1) 90%, rgba(63, 87, 150, 1) 100%);
   height: 100vh;
   width: 100vw;
@@ -134,7 +132,7 @@ code {
   left: 556px;
   border-radius: 20px;
   background-color: #a5a5a5;
-}
+} */
 
 /* ToggleSwitch css */
 .switch {
@@ -196,8 +194,7 @@ code {
   height: 24px;
 }
 
-/* .switch:hover */
-.sun svg {
+.switch:hover .sun svg {
   animation: rotate 15s linear infinite;
 }
 
@@ -212,8 +209,7 @@ code {
   }
 }
 
-/* .switch:hover */
-.moon svg {
+.switch:hover .moon svg {
   animation: tilt 5s linear infinite;
 }
 
