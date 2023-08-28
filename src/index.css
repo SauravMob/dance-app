@@ -91,6 +91,7 @@ code {
   border-radius: 50%;
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   opacity: 15%;
+  z-index: 999;
 }
 
 /* Parallax styles */
@@ -253,10 +254,11 @@ code {
 }
 
 .videoCard video {
+  height: 600px;
+  object-fit: cover;
   width: 100%;
   overflow: hidden;
-  border-bottom-left-radius: 100px;
-  border-bottom-right-radius: 100px;
+  border-radius: 80px;
   box-shadow: 6px 6px 12px #141414, -6px -6px 12px #120c0c;
   opacity: 0.9;
 }

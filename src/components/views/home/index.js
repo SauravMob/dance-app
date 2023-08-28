@@ -33,9 +33,6 @@ const Home = ({ theme, device }) => {
           </svg>
         </span>
       </div>
-      <div className='videoCard'>
-        {theme === 'dark' ? <VideoCard src={universe} /> : <VideoCard src={sunset} />}
-      </div>
     </div>
   )
 }

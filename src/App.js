@@ -1,13 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Navbar from './components/views/navbar'
 import Home from './components/views/home';
-import { Row } from 'react-bootstrap';
 import { useTrail, animated } from '@react-spring/web';
 import useMeasure from 'react-use-measure';
+import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+import VideoCard from './components/views/home/videoCard';
+import universe from './components/assets/video/universe.mp4'
+import sunset from './components/assets/video/sunset.mp4'
 
 const App = () => {
 
   const [ref, { left, top }] = useMeasure()
+  const parallaxRef = useRef()
 
   const [device, setDevice] = useState('LAPTOP')
   const [theme, setTheme] = useState('dark')
@@ -45,13 +49,25 @@ const App = () => {
   }
 
   return (
-    <div ref={ref} className={`App-${theme}`} onMouseMove={handleMouseMove}>
+    <Parallax pages={3} ref={parallaxRef} className={`App-${theme}`} onMouseMove={handleMouseMove}>
       {trail.map((props, index) => (
         <animated.div className='majorFollower' key={index} style={{ transform: props.xy.to(trans) }} />
       ))}
-      <Navbar device={device} theme={theme} handleTheme={handleTheme} />
-      <Home theme={theme} device={device} />
-    </div>
+      <ParallaxLayer offset={0} sticky={{ start: 0, end: 2 }}  speed={0.1}>
+        <Navbar device={device} theme={theme} handleTheme={handleTheme} />
+      </ParallaxLayer>
+      <ParallaxLayer offset={0} speed={1} onClick={() => parallaxRef.current.scrollTo(1)}>
+        <Home theme={theme} device={device} />
+      </ParallaxLayer>
+      <ParallaxLayer offset={1} speed={0.1}>
+        <div className='videoCard'>
+          {theme === 'dark' ? <VideoCard src={universe} /> : <VideoCard src={sunset} />}
+        </div>
+      </ParallaxLayer>
+      <ParallaxLayer offset={2} speed={1} onClick={() => parallaxRef.current.scrollTo(1)}>
+        <Home theme={theme} device={device} />
+      </ParallaxLayer>
+    </Parallax>
   )
 }
 
