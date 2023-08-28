@@ -55,7 +55,7 @@ code {
 .glider {
   position: absolute;
   display: flex;
-  height: 50px;
+  height: 63px;
   width: 150px;
   border-radius: 99px;
   transition: 0.4s ease-out;
@@ -274,7 +274,7 @@ code {
 
   .navbar-nav {
     background: aliceblue;
-    height: 50px;
+    /* height: 62px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -287,9 +287,12 @@ code {
     align-items: center;
     font-weight: 500;
     border-radius: 20px;
-    padding-left: 30px !important;
-    padding-right: 30px !important;
+    padding: 20px 30px !important;
     position: relative;
+    font-family: Neue,Arial,Helvetica,sans-serif;
+    color: #161616;
+    font-size: 15px;
+    font-weight: 400;
   }
 
   /* Home Styles for laptp */
@@ -306,4 +309,8 @@ code {
     left: 52%;
     height: 40%;
   }
+}
+
+.glider {
+  transition: all 400ms ease;
 }
