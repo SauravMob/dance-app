@@ -9,11 +9,9 @@ const VideoCard = ({ src }) => {
     }, [src])
 
     return (
-        <div className='videoCard'>
-            <video autoPlay loop muted ref={videoRef}>
-                <source src={src} type='video/mp4'></source>
-            </video>
-        </div>
+        <video autoPlay loop muted ref={videoRef}>
+            <source src={src} type='video/mp4'></source>
+        </video>
     )
 }
 

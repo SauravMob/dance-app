@@ -2,32 +2,21 @@ import { useEffect, useState } from 'react';
 import Navbar from './components/views/navbar'
 import Home from './components/views/home';
 import { Row } from 'react-bootstrap';
-import VideoCard from './components/views/home/videoCard';
-import universe from './components/assets/video/universe.mp4'
-import sunset from './components/assets/video/sunset.mp4'
+import { useTrail, animated } from '@react-spring/web';
+import useMeasure from 'react-use-measure';
 
 const App = () => {
 
-  const [position, setPosition] = useState({ x: 0, y: 0 })
-  const [scroll, setScroll] = useState(0)
+  const [ref, { left, top }] = useMeasure()
+
   const [device, setDevice] = useState('LAPTOP')
   const [theme, setTheme] = useState('dark')
+  const trans = (x, y) => `translate3d(${x}px,${y}px,0) translate3d(-50%,-50%,0)`
 
-  const handleMouseMove = (event) => {
-    setPosition({ x: event.clientX, y: event.clientY + scroll });
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScroll(window.scrollY)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
+  const [trail, api] = useTrail(1, i => ({
+    xy: [0, 0],
+    config: { mass: 10, tension: 250, friction: 70 },
+  }))
 
   useEffect(() => {
     const handleResize = () => {
@@ -46,19 +35,22 @@ const App = () => {
     }
   }, [])
 
+  const handleMouseMove = e => {
+    api.start({ xy: [e.clientX - left, e.clientY - top] })
+  }
+
   const handleTheme = (e) => {
     if (e.target.checked) setTheme('dark')
     else setTheme('light')
   }
 
   return (
-    <div className={`App-${theme}`} onMouseMove={handleMouseMove}>
-      {device === 'LAPTOP' && <div className="majorFollower" style={{ left: position.x, top: position.y }}></div>}
-      <Row className={`navbar-${theme}`}>
-        <Navbar device={device} theme={theme} handleTheme={handleTheme} />
-      </Row>
-      {device === 'LAPTOP' && <Home theme={theme} />}
-      {theme === 'dark' ? <VideoCard src={universe} /> : <VideoCard src={sunset} />}
+    <div ref={ref} className={`App-${theme}`} onMouseMove={handleMouseMove}>
+      {trail.map((props, index) => (
+        <animated.div className='majorFollower' key={index} style={{ transform: props.xy.to(trans) }} />
+      ))}
+      <Navbar device={device} theme={theme} handleTheme={handleTheme} />
+      <Home theme={theme} />
     </div>
   )
 }

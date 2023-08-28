@@ -17,32 +17,40 @@ code {
   width: 0em;
 }
 
-/* Theme Color changing */
-.navbar-dark {
+.App-dark {
   background: linear-gradient(90deg, rgba(12, 8, 80, 1) 0%, rgba(59, 64, 138, 1) 44%, rgba(63, 77, 128, 1) 90%, rgba(63, 87, 150, 1) 100%);
+  height: 100%;
+  width: 100vw;
 }
 
-.navbar-light {
+.App-light {
+  background: linear-gradient(90deg, rgba(255, 128, 0, 0.9697128851540616) 0%, rgba(255, 183, 0, 1) 100%, rgba(255, 196, 0, 1) 100%);
+  height: 100%;
+  width: 100vw;
+}
+
+/* Theme color styles */
+
+.App-light .navbar {
   background: linear-gradient(90deg, rgba(255, 128, 0, 0.9697128851540616) 0%, rgba(255, 183, 0, 1) 100%, rgba(255, 196, 0, 1) 100%);
 }
 
-.navbar-dark .navbar {
+.App-dark .navbar {
   background: linear-gradient(90deg, rgba(12, 8, 80, 1) 0%, rgba(59, 64, 138, 1) 44%, rgba(63, 77, 128, 1) 90%, rgba(63, 87, 150, 1) 100%);
 }
 
-.navbar-light .navbar {
-  background: linear-gradient(90deg, rgba(255, 128, 0, 0.9697128851540616) 0%, rgba(255, 183, 0, 1) 100%, rgba(255, 196, 0, 1) 100%);
-}
-
-.navbar-light .glider {
+.App-light .glider {
   background-color: rgb(206, 134, 19);
 }
 
-.navbar-dark .glider {
+.App-dark .glider {
   background-color: rgb(59, 9, 159);
 }
 
 /* Navbar css */
+.navbar {
+  z-index: 1;
+}
 
 .glider {
   position: absolute;
@@ -76,30 +84,30 @@ code {
 .majorFollower {
   width: 300px;
   height: 300px;
-  background-color: rgb(99, 99, 120);
+  background: rgb(99, 99, 120);
   border-radius: 50%;
   position: absolute;
-  transform: translate(-50%, -50%);
+  will-change: transform;
+  border-radius: 50%;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   opacity: 15%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 88.2);
-  transition: opacity 0.3s ease;
 }
 
 /* Parallax styles */
 .homeBg-dark {
   background: linear-gradient(90deg, rgba(12, 8, 80, 1) 0%, rgba(59, 64, 138, 1) 44%, rgba(63, 77, 128, 1) 90%, rgba(63, 87, 150, 1) 100%);
-  height: 100vh;
+  height: 100%;
   width: 100vw;
 }
 
 .homeBg-light {
   background: linear-gradient(90deg, rgba(255, 128, 0, 0.9697128851540616) 0%, rgba(255, 183, 0, 1) 100%, rgba(255, 196, 0, 1) 100%);
-  height: 100vh;
+  height: 100%;
   width: 100vw;
 }
 
 .home {
-  height: 665px;
+  height: 60vh;
   text-align: center;
   justify-content: center;
   display: flex;
@@ -107,31 +115,27 @@ code {
 }
 
 .top-logo {
-  height: 315px;
-  z-index: 2;
-  position: relative;
-  top: -100px;
-  left: 30px;
   color: rgb(223 206 206);
 }
 
 .bottom-logo {
-  height: 315px;
-  position: relative;
-  top: 60px;
-  left: -37px;
   color: rgb(223 206 206);
 }
 
 .video-box {
-  position: relative;
   height: 250px;
   width: 250px;
-  top: -478px;
-  left: 41%;
   border-radius: 20px;
-  background-color: #a5a5a5;
   opacity: 70%;
+}
+
+.video-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  box-shadow: 6px 6px 12px #141414, -6px -6px 12px #120c0c;
+  opacity: 0.9;
 }
 
 /* ToggleSwitch css */
@@ -246,7 +250,6 @@ code {
 
 /* VideoCard styles */
 .videoCard {
-  height: 865px;
   width: 102vw;
   cursor: none;
 }
@@ -264,10 +267,9 @@ code {
 
   /* NAVBAR STYLES FOR LAPTOP */
   .navbar {
-    background-color: transparent !important;
     background: transparent !important;
-    position: relative;
-    z-index: 1;
+    top: 35px;
+    z-index: 10;
   }
 
   .navbar-nav {

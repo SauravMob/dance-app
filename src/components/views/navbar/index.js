@@ -12,10 +12,10 @@ const Navbars = (props) => {
 
   const onActiveChange = (tab) => {
     setActiveLink(tab)
-    if (tab === '1') setPosition(-213)
+    if (tab === '1') setPosition(-222)
     else if (tab === '2') setPosition(-75)
     else if (tab === '3') setPosition(75)
-    else if (tab === '4') setPosition(213)
+    else if (tab === '4') setPosition(222)
   }
 
   const onNavEnter = (value) => {
@@ -26,7 +26,7 @@ const Navbars = (props) => {
   return (
     <>
       {device === 'LAPTOP' ? <>
-        <Navbar expand="md" className="mt-4 bg-body-tertiary">
+        <Navbar sticky='top' expand="md" className="bg-body-tertiary">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav onMouseEnter={() => onNavEnter(true)} onMouseLeave={() => onNavEnter(false)} className='mouse-follower'>
