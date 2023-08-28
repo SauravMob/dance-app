@@ -50,7 +50,7 @@ const App = () => {
         <animated.div className='majorFollower' key={index} style={{ transform: props.xy.to(trans) }} />
       ))}
       <Navbar device={device} theme={theme} handleTheme={handleTheme} />
-      <Home theme={theme} />
+      <Home theme={theme} device={device} />
     </div>
   )
 }

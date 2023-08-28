@@ -20,13 +20,13 @@ code {
 .App-dark {
   background: linear-gradient(90deg, rgba(12, 8, 80, 1) 0%, rgba(59, 64, 138, 1) 44%, rgba(63, 77, 128, 1) 90%, rgba(63, 87, 150, 1) 100%);
   height: 100%;
-  width: 100vw;
+  width: 102vw;
 }
 
 .App-light {
   background: linear-gradient(90deg, rgba(255, 128, 0, 0.9697128851540616) 0%, rgba(255, 183, 0, 1) 100%, rgba(255, 196, 0, 1) 100%);
   height: 100%;
-  width: 100vw;
+  width: 102vw;
 }
 
 /* Theme color styles */
@@ -40,11 +40,11 @@ code {
 }
 
 .App-light .glider {
-  background-color: rgb(206, 134, 19);
+  background-color: rgb(255 158 2);
 }
 
 .App-dark .glider {
-  background-color: rgb(59, 9, 159);
+  background-color: rgb(31 0 94);
 }
 
 /* Navbar css */
@@ -107,24 +107,23 @@ code {
 }
 
 .home {
-  height: 60vh;
-  text-align: center;
-  justify-content: center;
+  height: 100vh;
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-.top-logo {
-  color: rgb(223 206 206);
-}
-
-.bottom-logo {
-  color: rgb(223 206 206);
+.top-logo, .bottom-logo {
+  position: absolute;
 }
 
 .video-box {
-  height: 250px;
-  width: 250px;
+  height: 35%;
+  width: 25%;
+  position: absolute;
+  top: 42%;
+  left: 37%;
   border-radius: 20px;
   opacity: 70%;
 }
@@ -145,7 +144,6 @@ code {
   width: 64px;
   height: 34px;
   top: 16px;
-  right: 22px;
 }
 
 .switch input {
@@ -290,5 +288,20 @@ code {
     padding-left: 30px !important;
     padding-right: 30px !important;
     position: relative;
+  }
+
+  /* Home Styles for laptp */
+  .top-logo {
+    position: absolute;
+    top: 25%;
+    left: 12%;
+    height: 40%;
+  }
+  
+  .bottom-logo {
+    position: absolute;
+    top: 50%;
+    left: 52%;
+    height: 40%;
   }
 }
