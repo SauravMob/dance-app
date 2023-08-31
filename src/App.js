@@ -9,6 +9,7 @@ import sunset from './components/assets/video/sunset.mp4'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import AboutVideo from './components/views/home/about/videoSection'
 import AboutText from './components/views/home/about/textSection'
+import Carousel from './components/views/home/caraousal'
 
 const App = () => {
 
@@ -17,7 +18,6 @@ const App = () => {
   const [ref, { left, top }] = useMeasure()
 
   // States
-  const [layer, setLayer] = useState()
   const [theme, setTheme] = useState('dark')
   const [device, setDevice] = useState('LAPTOP')
   const [scrollPosition, setScrollPosition] = useState(0)
@@ -30,7 +30,7 @@ const App = () => {
   // Hooks
   const [trail, api] = useTrail(1, i => ({
     xy: [0, 0],
-    config: { mass: 10, tension: 250, friction: 70 },
+    config: { mass: 10, tension: 250, friction: 30 },
   }))
 
   useEffect(() => {
@@ -103,7 +103,7 @@ const App = () => {
 
   return (
     <div ref={ref} onMouseMove={handleMouseMove}>
-      <Parallax ref={parallaxRef} pages={5} className={`App-${theme}`}>
+      <Parallax ref={parallaxRef} pages={6} className={`App-${theme}`}>
         <ParallaxLayer speed={0.5} sticky={{ start: 0, end: 5 }} style={{ height: '0px' }}>
           {trail.map((props, index) => (
             <animated.div className='majorFollower' key={index} style={{ transform: props.xy.to(trans) }} />
@@ -120,15 +120,18 @@ const App = () => {
             {theme === 'dark' ? <VideoCard src={universe} /> : <VideoCard src={sunset} />}
           </div>
         </ParallaxLayer>
-        <ParallaxLayer speed={0.5} offset={2} sticky={{ start: 2, end: 3 }} style={{ height: '0px' }} onMouseEnter={() => setLayer("EXPLORE")} onMouseLeave={() => setLayer('')}>
+        <ParallaxLayer speed={0.8} offset={2} sticky={{ start: 2, end: 3 }} style={{ height: '0px' }} onMouseEnter={() => onActiveChange('1')} onMouseLeave={() => onActiveChange('')}>
           <div className='about-videoCard'>
             {theme === 'dark' ? <AboutVideo src={universe} /> : <AboutVideo src={sunset} />}
           </div>
         </ParallaxLayer>
-        <ParallaxLayer speed={1.2} offset={2.9}>
+        <ParallaxLayer speed={1} offset={2.9}>
           <AboutText theme={theme} device={device} />
         </ParallaxLayer>
-        <ParallaxLayer speed={0.2} offset={4} onClick={() => parallaxRef.current.scrollTo(1)}>
+        <ParallaxLayer speed={0.2} offset={4}>
+          <Carousel theme={theme} device={device} />
+        </ParallaxLayer>
+        <ParallaxLayer speed={0.2} offset={5} onClick={() => parallaxRef.current.scrollTo(1)} onMouseEnter={() => onActiveChange('2')}>
           <Home theme={theme} device={device} />
         </ParallaxLayer>
       </Parallax>

@@ -99,8 +99,9 @@ code {
   will-change: transform;
   border-radius: 50%;
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  opacity: 15%;
+  opacity: 30%;
   z-index: -1;
+  filter: blur(20px);
 }
 
 /* Parallax styles */
