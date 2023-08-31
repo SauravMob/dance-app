@@ -1,21 +1,21 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from './components/views/navbar'
 import Home from './components/views/home';
 import { useTrail, animated } from '@react-spring/web';
 import useMeasure from 'react-use-measure';
-import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import VideoCard from './components/views/home/videoCard';
 import universe from './components/assets/video/universe.mp4'
 import sunset from './components/assets/video/sunset.mp4'
+import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 
 const App = () => {
 
   const [ref, { left, top }] = useMeasure()
-  const parallaxRef = useRef()
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   const [device, setDevice] = useState('LAPTOP')
   const [theme, setTheme] = useState('dark')
-  const trans = (x, y) => `translate3d(${x}px,${y}px,0) translate3d(-50%,-50%,0)`
+  const trans = (x, y) => `translate3d(${x}px,${y + scrollPosition}px,0) translate3d(-50%,-50%,0)`
 
   const [trail, api] = useTrail(1, i => ({
     xy: [0, 0],
@@ -39,6 +39,19 @@ const App = () => {
     }
   }, [])
 
+  const handleScroll = () => {
+    const position = window.scrollY
+    setScrollPosition(position)
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   const handleMouseMove = e => {
     api.start({ xy: [e.clientX - left, e.clientY - top] })
   }
@@ -49,22 +62,24 @@ const App = () => {
   }
 
   return (
-    <Parallax pages={3} ref={parallaxRef} className={`App-${theme}`} onMouseMove={handleMouseMove}>
-      {trail.map((props, index) => (
-        <animated.div className='majorFollower' key={index} style={{ transform: props.xy.to(trans) }} />
-      ))}
-      <ParallaxLayer offset={0} sticky={{ start: 0, end: 2 }}  speed={0.1}>
+    <Parallax pages={3} ref={ref.current} className={`App-${theme}`} onMouseMove={handleMouseMove}>
+      <ParallaxLayer speed={0.5} sticky={{ start: 0, end: 3 }}>
+        {trail.map((props, index) => (
+          <animated.div className='majorFollower' key={index} style={{ transform: props.xy.to(trans) }} />
+        ))}
+      </ParallaxLayer>
+      <ParallaxLayer speed={0.2} sticky={{ start: 0, end: 3 }}>
         <Navbar device={device} theme={theme} handleTheme={handleTheme} />
       </ParallaxLayer>
-      <ParallaxLayer offset={0} speed={1} onClick={() => parallaxRef.current.scrollTo(1)}>
+      <ParallaxLayer speed={-0.1} offset={0}>
         <Home theme={theme} device={device} />
       </ParallaxLayer>
-      <ParallaxLayer offset={1} speed={0.1}>
+      <ParallaxLayer speed={0.1} offset={1}>
         <div className='videoCard'>
           {theme === 'dark' ? <VideoCard src={universe} /> : <VideoCard src={sunset} />}
         </div>
       </ParallaxLayer>
-      <ParallaxLayer offset={2} speed={1} onClick={() => parallaxRef.current.scrollTo(1)}>
+      <ParallaxLayer speed={0.2} offset={2}>
         <Home theme={theme} device={device} />
       </ParallaxLayer>
     </Parallax>

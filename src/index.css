@@ -91,7 +91,7 @@ code {
   border-radius: 50%;
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   opacity: 15%;
-  z-index: 999;
+  z-index: 9;
 }
 
 /* Parallax styles */
@@ -115,7 +115,8 @@ code {
   justify-content: center;
 }
 
-.top-logo, .bottom-logo {
+.top-logo,
+.bottom-logo {
   position: absolute;
 }
 
@@ -254,13 +255,28 @@ code {
 }
 
 .videoCard video {
-  height: 600px;
+  height: 750px;
   object-fit: cover;
   width: 100%;
-  overflow: hidden;
-  border-radius: 80px;
+  border-radius: 180px;
   box-shadow: 6px 6px 12px #141414, -6px -6px 12px #120c0c;
   opacity: 0.9;
+}
+
+.about-layer {
+  height: 1500px;
+}
+
+.about-video-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-text-section {
+  margin-top: 30px;
+  overflow-y: scroll;
+  font-size: 42px;
 }
 
 @media screen and (min-width: 768px) {
@@ -299,7 +315,7 @@ code {
     left: 12%;
     height: 40%;
   }
-  
+
   .bottom-logo {
     position: absolute;
     top: 50%;
