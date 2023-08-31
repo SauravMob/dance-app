@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar'
 
 const Navbars = (props) => {
 
-  const { device, handleTheme, theme } = props
+  const { device, handleTheme, theme, layer } = props
 
   const [active, setActive] = useState(false)
   const [activeLink, setActiveLink] = useState('')
@@ -30,10 +30,10 @@ const Navbars = (props) => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav onMouseEnter={() => onNavEnter(true)} onMouseLeave={() => onNavEnter(false)} className='mouse-follower'>
-              <Nav.Link onMouseEnter={() => onActiveChange('1')} className={activeLink === '1' && 'link-active'}>Let's Explore</Nav.Link>
-              <Nav.Link onMouseEnter={() => onActiveChange('2')} className={activeLink === '2' && 'link-active'}>Let's Meet</Nav.Link>
-              <Nav.Link onMouseEnter={() => onActiveChange('3')} className={activeLink === '3' && 'link-active'}>Let's Attend</Nav.Link>
-              <Nav.Link onMouseEnter={() => onActiveChange('4')} className={activeLink === '4' && 'link-active'}>Let's Dance</Nav.Link>
+              <Nav.Link onMouseEnter={() => onActiveChange('1')} className={(activeLink === '1' || layer === 'EXPLORE') ? 'link-active' : ''}>Let's Explore</Nav.Link>
+              <Nav.Link onMouseEnter={() => onActiveChange('2')} className={(activeLink === '2' || layer === 'MEET') ? 'link-active' : ''}>Let's Meet</Nav.Link>
+              <Nav.Link onMouseEnter={() => onActiveChange('3')} className={(activeLink === '3' || layer === 'ATTEND') ? 'link-active' : ''}>Let's Attend</Nav.Link>
+              <Nav.Link onMouseEnter={() => onActiveChange('4')} className={(activeLink === '4' || layer === 'DANCE') ? 'link-active' : ''}>Let's Dance</Nav.Link>
               {active && <span className='glider' style={{ transform: `translateX(${position}px)` }}></span>}
             </Nav>
           </Navbar.Collapse>

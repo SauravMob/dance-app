@@ -47,6 +47,14 @@ code {
   background-color: rgb(31 0 94);
 }
 
+.App-light .link-active {
+  background-color: rgb(255 158 2);
+}
+
+.App-dark .link-active {
+  background-color: rgb(31 0 94);
+}
+
 /* Navbar css */
 .navbar {
   z-index: 1;
@@ -91,7 +99,7 @@ code {
   border-radius: 50%;
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   opacity: 15%;
-  z-index: 9;
+  z-index: -1;
 }
 
 /* Parallax styles */
@@ -263,20 +271,24 @@ code {
   opacity: 0.9;
 }
 
-.about-layer {
-  height: 1500px;
-}
+/* About Section styles */
 
-.about-video-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.about-videoCard video {
+  height: 550px;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 180px;
+  box-shadow: 6px 6px 12px #141414, -6px -6px 12px #120c0c;
+  opacity: 0.9;
 }
 
 .about-text-section {
-  margin-top: 30px;
-  overflow-y: scroll;
   font-size: 42px;
+  color: #fff;
+  font-weight: 600;
+  font-style: italic;
+  padding: 30px;
+  opacity: 0.8;
 }
 
 @media screen and (min-width: 768px) {
