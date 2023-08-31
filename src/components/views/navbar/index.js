@@ -1,27 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 
-const Navbars = (props) => {
-
-  const { device, handleTheme, theme, layer } = props
-
-  const [active, setActive] = useState(false)
-  const [activeLink, setActiveLink] = useState('')
-  const [position, setPosition] = useState(0)
-
-  const onActiveChange = (tab) => {
-    setActiveLink(tab)
-    if (tab === '1') setPosition(-222)
-    else if (tab === '2') setPosition(-75)
-    else if (tab === '3') setPosition(75)
-    else if (tab === '4') setPosition(222)
-  }
-
-  const onNavEnter = (value) => {
-    setActive(value)
-    if (!value) setActiveLink('')
-  }
+const Navbars = ({ device, handleTheme, theme, onActiveChange, onTabChange, activeLink, position }) => {
 
   return (
     <>
@@ -29,12 +10,12 @@ const Navbars = (props) => {
         <Navbar sticky='top' expand="md" className="bg-body-tertiary">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav onMouseEnter={() => onNavEnter(true)} onMouseLeave={() => onNavEnter(false)} className='mouse-follower'>
-              <Nav.Link onMouseEnter={() => onActiveChange('1')} className={(activeLink === '1' || layer === 'EXPLORE') ? 'link-active' : ''}>Let's Explore</Nav.Link>
-              <Nav.Link onMouseEnter={() => onActiveChange('2')} className={(activeLink === '2' || layer === 'MEET') ? 'link-active' : ''}>Let's Meet</Nav.Link>
-              <Nav.Link onMouseEnter={() => onActiveChange('3')} className={(activeLink === '3' || layer === 'ATTEND') ? 'link-active' : ''}>Let's Attend</Nav.Link>
-              <Nav.Link onMouseEnter={() => onActiveChange('4')} className={(activeLink === '4' || layer === 'DANCE') ? 'link-active' : ''}>Let's Dance</Nav.Link>
-              {active && <span className='glider' style={{ transform: `translateX(${position}px)` }}></span>}
+            <Nav className='mouse-follower'>
+              <Nav.Link onMouseEnter={() => onActiveChange('1')} onClick={() => onTabChange('1')} className={activeLink === '1' && 'link-active'}>Let's Explore</Nav.Link>
+              <Nav.Link onMouseEnter={() => onActiveChange('2')} onClick={() => onTabChange('2')} className={activeLink === '2' && 'link-active'}>Let's Meet</Nav.Link>
+              <Nav.Link onMouseEnter={() => onActiveChange('3')} onClick={() => onTabChange('3')} className={activeLink === '3' && 'link-active'}>Let's Attend</Nav.Link>
+              <Nav.Link onMouseEnter={() => onActiveChange('4')} onClick={() => onTabChange('4')} className={activeLink === '4' && 'link-active'}>Let's Dance</Nav.Link>
+              {activeLink !== '' && <span className='glider' style={{ transform: `translateX(${position}px)` }}></span>}
             </Nav>
           </Navbar.Collapse>
           <label className="switch" style={{ right: '34px' }}>
@@ -49,10 +30,10 @@ const Navbars = (props) => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" className='ml-1' style={{ marginLeft: '20px' }} />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
-              <Nav.Link onMouseEnter={() => onActiveChange('1')}>Let's Explore</Nav.Link>
-              <Nav.Link onMouseEnter={() => onActiveChange('2')}>Let's Meet</Nav.Link>
-              <Nav.Link onMouseEnter={() => onActiveChange('3')}>Let's Attend</Nav.Link>
-              <Nav.Link onMouseEnter={() => onActiveChange('4')}>Let's Dance</Nav.Link>
+              <Nav.Link onMouseEnter={() => onActiveChange('1')} onClick={() => onTabChange('1')}>Let's Explore</Nav.Link>
+              <Nav.Link onMouseEnter={() => onActiveChange('2')} onClick={() => onTabChange('2')}>Let's Meet</Nav.Link>
+              <Nav.Link onMouseEnter={() => onActiveChange('3')} onClick={() => onTabChange('3')}>Let's Attend</Nav.Link>
+              <Nav.Link onMouseEnter={() => onActiveChange('4')} onClick={() => onTabChange('4')}>Let's Dance</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
