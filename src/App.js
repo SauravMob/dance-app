@@ -131,7 +131,7 @@ const App = () => {
         <ParallaxLayer speed={0.2} offset={4}>
           <Carousel theme={theme} device={device} />
         </ParallaxLayer>
-        <ParallaxLayer speed={0.2} offset={5} onClick={() => parallaxRef.current.scrollTo(1)} onMouseEnter={() => onActiveChange('2')}>
+        <ParallaxLayer speed={0.2} offset={5} onClick={() => parallaxRef.current.scrollTo(2)} onMouseEnter={() => onActiveChange('2')}>
           <Home theme={theme} device={device} />
         </ParallaxLayer>
       </Parallax>
