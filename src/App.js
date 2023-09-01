@@ -104,11 +104,11 @@ const App = () => {
   return (
     <div ref={ref} onMouseMove={handleMouseMove}>
       <Parallax ref={parallaxRef} pages={6} className={`App-${theme}`}>
-        <ParallaxLayer speed={0.5} sticky={{ start: 0, end: 5 }} style={{ height: '0px' }}>
+        {/* <ParallaxLayer speed={0.5} sticky={{ start: 0, end: 5 }} style={{ height: '0px' }}>
           {trail.map((props, index) => (
             <animated.div className='majorFollower' key={index} style={{ transform: props.xy.to(trans) }} />
           ))}
-        </ParallaxLayer>
+        </ParallaxLayer> */}
         <ParallaxLayer speed={0.2} sticky={{ start: 0, end: 5 }} style={{ height: '0px', top: '40px' }}>
           <Navbar device={device} theme={theme} handleTheme={handleTheme} onActiveChange={onActiveChange} onTabChange={onTabChange} activeLink={activeLink} position={position} />
         </ParallaxLayer>
@@ -120,7 +120,7 @@ const App = () => {
             {theme === 'dark' ? <VideoCard src={universe} /> : <VideoCard src={sunset} />}
           </div>
         </ParallaxLayer>
-        <ParallaxLayer speed={0.8} offset={2} sticky={{ start: 2, end: 3 }} style={{ height: '0px' }} onMouseEnter={() => onActiveChange('1')} onMouseLeave={() => onActiveChange('')}>
+        <ParallaxLayer speed={1} offset={2} sticky={{ start: 2, end: 3 }} style={{ height: '0px' }} onMouseEnter={() => onActiveChange('1')} onMouseLeave={() => onActiveChange('')}>
           <div className='about-videoCard'>
             {theme === 'dark' ? <AboutVideo src={universe} /> : <AboutVideo src={sunset} />}
           </div>
@@ -128,10 +128,10 @@ const App = () => {
         <ParallaxLayer speed={1} offset={2.9}>
           <AboutText theme={theme} device={device} />
         </ParallaxLayer>
-        <ParallaxLayer speed={0.2} offset={4}>
+        <ParallaxLayer speed={1} offset={4}>
           <Carousel theme={theme} device={device} />
         </ParallaxLayer>
-        <ParallaxLayer speed={0.2} offset={5} onClick={() => parallaxRef.current.scrollTo(2)} onMouseEnter={() => onActiveChange('2')}>
+        <ParallaxLayer speed={1} offset={5} onClick={() => parallaxRef.current.scrollTo(2)} onMouseEnter={() => onActiveChange('2')}>
           <Home theme={theme} device={device} />
         </ParallaxLayer>
       </Parallax>

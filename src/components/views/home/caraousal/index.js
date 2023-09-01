@@ -1,11 +1,67 @@
-import React from 'react'
-import { Row } from 'react-bootstrap'
+import React, { useState } from 'react'
+import tree from '../../../assets/images/tree.jpg'
+import fantasy from '../../../assets/images/fantasy.jpg'
+import forest from '../../../assets/images/forest.jpg'
+import moon from '../../../assets/images/moon.jpg'
+import secret from '../../../assets/images/secret.jpg'
+import Modal from 'react-bootstrap/Modal';
+import { Col, Row } from 'react-bootstrap'
 
 const Carousel = () => {
+
+    const images = [tree, fantasy, forest, moon, secret]
+    const [activeAccordian, setActiveAccordian] = useState()
+    const [open, setOpen] = useState({
+        show: false,
+        imgUrl: ''
+    })
+
+    const onExpandItem = (key, e) => {
+        setActiveAccordian(key)
+    }
+
+    const ItemModal = () => {
+        return (
+            <Modal
+                show={open.show}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+                onHide={() => setOpen({
+                    ...open,
+                    show: false
+                })}
+            >
+                <Modal.Body style={{ backgroundColor: 'rgba(12, 8, 80, 1)' }}>
+                    <Row>
+                        <Col style={{ backgroundImage: `url(${open.imgUrl})` }}></Col>
+                        <Col className='text-center p-3 text-white'>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed vitae ullam incidunt quia enim architecto illo asperiores voluptate, voluptates, similique magnam aliquam quo ad pariatur aspernatur vel rem laborum. Perferendis facere, tempora necessitatibus veniam nobis consectetur dolorem deleniti nihil eveniet esse sed ipsum amet voluptatem voluptatibus non quos sapiente quasi nostrum error adipisci soluta rerum, laboriosam reiciendis nam! Ut ullam deleniti hic asperiores reiciendis amet voluptate obcaecati iste beatae nulla expedita quod accusantium ea qui quos, pariatur delectus culpa, a aperiam vero perspiciatis consectetur, illo minus modi. Iure, earum labore. Dolores ratione vitae consequuntur. Sunt, reiciendis obcaecati! Illum, asperiores molestiae illo esse, alias libero fuga tempora obcaecati odit consequuntur totam nostrum eaque quos voluptate earum voluptatum dolorem. Quasi, suscipit exercitationem eos ea illo cupiditate saepe iure possimus. Dolor, facere vitae culpa eos fugiat eveniet, laborum eius, temporibus numquam ab est fugit et nemo quidem eligendi ipsa error labore explicabo laboriosam! In, similique sapiente. Non, iste porro quis quaerat delectus corrupti commodi ab aliquid in atque voluptas quisquam asperiores, dolorem facilis
+                        </Col>
+                    </Row>
+                </Modal.Body>
+            </Modal>
+        )
+    }
+
     return (
-        <Row className='p-5 text-white'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ea accusantium repellendus sed dolor molestiae magnam maxime laborum architecto commodi reprehenderit obcaecati ratione sit, dicta nulla quaerat recusandae non numquam incidunt! Sequi eum dolore reprehenderit velit maxime, facere cumque eos sed, at, impedit molestiae beatae non quisquam. Excepturi recusandae vero doloribus officiis ipsa laboriosam blanditiis error neque harum cumque, dolorum voluptatibus voluptatum nulla iusto quas magnam optio atque porro, nemo itaque. Qui natus ea dicta vitae necessitatibus, labore ullam tempora. Aperiam ea vel est dicta culpa possimus eos molestiae, deleniti, qui nobis quam? Voluptas deleniti facere tempora, minus totam minima dolores eveniet cum consectetur consequuntur tempore nesciunt velit omnis cumque nulla exercitationem officiis magni alias hic est odio aliquid. Doloribus quis quibusdam at cumque tempora. Vitae labore repellat optio soluta voluptas consequuntur. Neque praesentium dicta optio doloremque fugit ducimus beatae voluptas quam reprehenderit quidem sint natus nesciunt, ipsa inventore dolorem pariatur veniam cumque ex modi consectetur animi dolore saepe. Sapiente, similique omnis aut non molestiae suscipit modi nisi voluptatibus quo, cupiditate id rem in sit. Libero dignissimos perferendis voluptate eius, est ratione, dicta tempore consectetur cupiditate, iure impedit architecto voluptates quis nemo enim vero voluptatibus laudantium nostrum esse voluptatum maiores. Sapiente distinctio ducimus neque expedita veritatis! Odio dolorem, culpa dolore atque error commodi temporibus esse in fugiat reiciendis necessitatibus nihil fuga repudiandae alias illum tempore nesciunt placeat. Inventore pariatur in expedita tempore. Rerum molestiae unde voluptates id minus dicta omnis expedita inventore veritatis. Ab ipsa dolorum, odio fugiat dicta exercitationem quos quia cum similique perferendis expedita maiores quasi reiciendis nostrum et doloribus possimus porro magnam asperiores necessitatibus atque quisquam ducimus. Velit voluptates architecto consequuntur voluptas cum itaque dolorum, eligendi ratione, fugiat tenetur officiis, voluptatibus eum facilis deleniti voluptatum dolore hic ea modi iste? Rem, earum corporis quas dolorum reiciendis commodi voluptates quia qui perspiciatis assumenda dolorem veniam tempore, ducimus laborum accusantium vitae deleniti officiis iure? Dolor aperiam delectus laborum minus ipsa! Neque nesciunt quae excepturi quasi laboriosam dolorem velit minima facilis odio. Blanditiis dolores sequi ratione aut vitae voluptatum aspernatur. Voluptas esse tenetur consequatur eligendi ducimus necessitatibus, perferendis aliquid consequuntur nostrum officiis a blanditiis est. Provident, accusamus! Odio ea omnis corrupti autem sunt corporis perspiciatis tempore tempora temporibus, optio pariatur illum impedit aspernatur beatae, minima commodi rerum dicta eaque labore earum obcaecati facilis aut consequuntur. Natus quam molestiae voluptate sint mollitia corrupti consequuntur deserunt quod, eaque magni debitis in a? Eveniet nesciunt quas eum autem rem eos illum optio quaerat corporis incidunt laboriosam eius recusandae nisi necessitatibus corrupti, commodi, quia fugiat omnis totam alias facilis! Non totam id animi unde laudantium, explicabo quos eius esse cupiditate perferendis nisi doloribus illo dolorem nam nesciunt sunt adipisci neque saepe incidunt vero maiores voluptas tenetur ea. Quisquam quia, reprehenderit ipsum voluptatum exercitationem veritatis soluta corrupti tempora voluptatem alias consequatur repellendus in provident error magni! Fuga asperiores saepe, maxime similique ratione rem a sunt itaque. Veritatis pariatur aut reiciendis quia illum quidem laborum qui perferendis, numquam magni excepturi est sequi expedita debitis perspiciatis corruption.
-        </Row>
+        <>
+            <div className='group'>
+                {images.map((val, key) => {
+                    return <>
+                        <div
+                            key={key}
+                            className={`item ${activeAccordian ? (activeAccordian === val ? `active-url` : `unactive-url`) : ''}`}
+                            style={{ backgroundImage: `url(${val})` }}
+                            onMouseEnter={(e) => onExpandItem(val, e)}
+                            onMouseLeave={(e) => setActiveAccordian()}
+                            onClick={() => setOpen({ show: true, imgUrl: val })}
+                        ></div>
+                    </>
+                })}
+                <ItemModal />
+            </div>
+        </>
     )
 }
 

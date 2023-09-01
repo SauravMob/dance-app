@@ -294,6 +294,59 @@ code {
   opacity: 0.8;
 }
 
+/* carousels styles */
+.group {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.item {
+  width: 15vw;
+  height: 75vh;
+  background-position: center;
+  background-size: 75vh;
+  margin: 1vw;
+  border-radius: 3vw;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.active-url {
+  width: 42vw;
+  transition: transform 2s ease-in;
+}
+
+.unactive-url {
+  width: 8vw;
+  transition: transform 0.4s ease-out;
+  transform: scale(0.85);
+  opacity: 0.7;
+}
+
+.modal {
+  animation: bounceIn 1s;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.modal-body {
+  padding: 0 !important;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
+  }
+
+  70% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
 @media screen and (min-width: 768px) {
 
   /* NAVBAR STYLES FOR LAPTOP */
