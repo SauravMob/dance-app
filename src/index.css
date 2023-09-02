@@ -362,7 +362,7 @@ code {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 25px;
+    border-radius: 90px;
   }
 
   .nav-link {
@@ -370,8 +370,8 @@ code {
     display: flex;
     align-items: center;
     font-weight: 500;
-    border-radius: 20px;
-    padding: 20px 30px !important;
+    /* border-radius: 20px; */
+    padding: 20px 34.5px !important;
     position: relative;
     font-family: Neue,Arial,Helvetica,sans-serif;
     color: #161616;

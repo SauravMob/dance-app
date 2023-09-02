@@ -11,10 +11,10 @@ const Navbars = ({ device, handleTheme, theme, onActiveChange, onTabChange, acti
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className='mouse-follower'>
-              <Nav.Link onMouseEnter={() => onActiveChange('1')} onClick={() => onTabChange('1')} className={activeLink === '1' && 'link-active'}>Let's Explore</Nav.Link>
-              <Nav.Link onMouseEnter={() => onActiveChange('2')} onClick={() => onTabChange('2')} className={activeLink === '2' && 'link-active'}>Let's Meet</Nav.Link>
-              <Nav.Link onMouseEnter={() => onActiveChange('3')} onClick={() => onTabChange('3')} className={activeLink === '3' && 'link-active'}>Let's Attend</Nav.Link>
-              <Nav.Link onMouseEnter={() => onActiveChange('4')} onClick={() => onTabChange('4')} className={activeLink === '4' && 'link-active'}>Let's Dance</Nav.Link>
+              <Nav.Link onMouseEnter={() => onActiveChange('1')} onClick={() => onTabChange('1')} className={activeLink === '1' && 'link-active'}>Let's explore</Nav.Link>
+              <Nav.Link onMouseEnter={() => onActiveChange('2')} onClick={() => onTabChange('2')} className={activeLink === '2' && 'link-active'}>Let's meet</Nav.Link>
+              <Nav.Link onMouseEnter={() => onActiveChange('3')} onClick={() => onTabChange('3')} className={activeLink === '3' && 'link-active'}>Let's attend</Nav.Link>
+              <Nav.Link onMouseEnter={() => onActiveChange('4')} onClick={() => onTabChange('4')} className={activeLink === '4' && 'link-active'}>Let's dance</Nav.Link>
               {activeLink !== '' && <span className='glider' style={{ transform: `translateX(${position}px)` }}></span>}
             </Nav>
           </Navbar.Collapse>
@@ -30,10 +30,10 @@ const Navbars = ({ device, handleTheme, theme, onActiveChange, onTabChange, acti
           <Navbar.Toggle aria-controls="basic-navbar-nav" className='ml-1' style={{ marginLeft: '20px' }} />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
-              <Nav.Link onMouseEnter={() => onActiveChange('1')} onClick={() => onTabChange('1')}>Let's Explore</Nav.Link>
-              <Nav.Link onMouseEnter={() => onActiveChange('2')} onClick={() => onTabChange('2')}>Let's Meet</Nav.Link>
-              <Nav.Link onMouseEnter={() => onActiveChange('3')} onClick={() => onTabChange('3')}>Let's Attend</Nav.Link>
-              <Nav.Link onMouseEnter={() => onActiveChange('4')} onClick={() => onTabChange('4')}>Let's Dance</Nav.Link>
+              <Nav.Link onMouseEnter={() => onActiveChange('1')} onClick={() => onTabChange('1')}>Let's explore</Nav.Link>
+              <Nav.Link onMouseEnter={() => onActiveChange('2')} onClick={() => onTabChange('2')}>Let's meet</Nav.Link>
+              <Nav.Link onMouseEnter={() => onActiveChange('3')} onClick={() => onTabChange('3')}>Let's attend</Nav.Link>
+              <Nav.Link onMouseEnter={() => onActiveChange('4')} onClick={() => onTabChange('4')}>Let's dance</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
