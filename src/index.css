@@ -276,6 +276,11 @@ code {
 
 /* About Section styles */
 
+.about-videoCard {
+  background-color: #73C0FC;
+  height: 100vh;
+}
+
 .about-videoCard video {
   height: 550px;
   object-fit: cover;
