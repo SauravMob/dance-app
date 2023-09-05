@@ -48,8 +48,7 @@ const Carousel = () => {
         <>
             <div className='group'>
                 {images.map((val, key) => {
-                    return <>
-                        <div
+                    return <div
                             key={key}
                             className={`item ${activeAccordian ? (activeAccordian === val ? `active-url` : `unactive-url`) : ''}`}
                             style={{ backgroundImage: `url(${val})` }}
@@ -57,7 +56,6 @@ const Carousel = () => {
                             onMouseLeave={(e) => setActiveAccordian()}
                             onClick={() => setOpen({ show: true, imgUrl: val })}
                         ></div>
-                    </>
                 })}
                 <ItemModal />
             </div>

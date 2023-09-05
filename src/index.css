@@ -39,6 +39,14 @@ code {
   background: linear-gradient(90deg, rgba(12, 8, 80, 1) 0%, rgba(59, 64, 138, 1) 44%, rgba(63, 77, 128, 1) 90%, rgba(63, 87, 150, 1) 100%);
 }
 
+.App-light .footer-light {
+  background: linear-gradient(90deg, rgba(255, 128, 0, 0.9697128851540616) 0%, rgba(255, 183, 0, 1) 100%, rgba(255, 196, 0, 1) 100%);
+}
+
+.App-dark .footer-dark {
+  background: linear-gradient(90deg, rgba(12, 8, 80, 1) 0%, rgba(59, 64, 138, 1) 44%, rgba(63, 77, 128, 1) 90%, rgba(63, 87, 150, 1) 100%);
+}
+
 .App-light .glider {
   background-color: rgb(255 158 2);
 }
@@ -55,6 +63,14 @@ code {
 .App-dark .link-active {
   background-color: rgb(31 0 94);
   color: rgb(255 255 255 / 80%);
+}
+
+.App-dark .about-videoCard {
+  background-color: #30429d;
+}
+
+.App-light .about-videoCard {
+  background-color: #c36b34;
 }
 
 /* Navbar css */
@@ -276,6 +292,10 @@ code {
 
 /* About Section styles */
 
+.about-videoCard {
+  height: 100vh;
+}
+
 .about-videoCard video {
   height: 550px;
   object-fit: cover;
@@ -345,6 +365,17 @@ code {
   100% {
     transform: scale(1);
   }
+}
+
+/* Footer styles */
+.footer {
+  height: 100%;
+  width: 100%;
+  margin-top: 8%;
+}
+
+.footer-logo {
+  padding: 50px;
 }
 
 @media screen and (min-width: 768px) {
