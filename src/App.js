@@ -10,6 +10,7 @@ import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import AboutVideo from './components/views/home/about/videoSection'
 import AboutText from './components/views/home/about/textSection'
 import Carousel from './components/views/home/caraousal'
+import Footer from './components/views/footer'
 
 const App = () => {
 
@@ -104,23 +105,23 @@ const App = () => {
   return (
     <div ref={ref} onMouseMove={handleMouseMove}>
       <Parallax ref={parallaxRef} pages={6} className={`App-${theme}`}>
-        {/* <ParallaxLayer speed={0.5} sticky={{ start: 0, end: 5 }} style={{ height: '0px', zIndex: 0 }}>
+        <ParallaxLayer speed={0.5} sticky={{ start: 0, end: 2 }} style={{ height: '0px', zIndex: 0 }}>
           {trail.map((props, index) => (
             <animated.div className='majorFollower' key={index} style={{ transform: props.xy.to(trans) }} />
           ))}
-        </ParallaxLayer> */}
-        <ParallaxLayer speed={0.2} sticky={{ start: 0, end: 5 }} style={{ height: '0px', top: '40px', zIndex: 0 }}>
+        </ParallaxLayer>
+        <ParallaxLayer speed={0.2} sticky={{ start: 0, end: 5 }} style={{ height: '0px', top: '40px', zIndex: 4 }}>
           <Navbar device={device} theme={theme} handleTheme={handleTheme} onActiveChange={onActiveChange} onTabChange={onTabChange} activeLink={activeLink} position={position} />
         </ParallaxLayer>
         <ParallaxLayer speed={-0.1} offset={0}>
           <Home theme={theme} device={device} />
         </ParallaxLayer>
-        <ParallaxLayer style={{ height: '100vh', zIndex: -1 }} speed={1} offset={1}>
+        <ParallaxLayer speed={1.1} offset={1} style={{ zIndex: 2 }}>
           <div className='videoCard'>
             {theme === 'dark' ? <VideoCard src={universe} /> : <VideoCard src={sunset} />}
           </div>
         </ParallaxLayer>
-        <ParallaxLayer speed={1} offset={2} sticky={{ start: 2, end: 3 }} style={{ height: '100vh', zIndex: -1 }} onMouseEnter={() => onActiveChange('1')} onMouseLeave={() => onActiveChange('')}>
+        <ParallaxLayer speed={-0.1} style={{ zIndex: '-1' }} offset={2} sticky={{ start: 2, end: 3 }} onMouseEnter={() => onActiveChange('1')} onMouseLeave={() => onActiveChange('')}>
           <div className='about-videoCard'>
             {theme === 'dark' ? <AboutVideo src={universe} /> : <AboutVideo src={sunset} />}
           </div>
@@ -128,11 +129,11 @@ const App = () => {
         <ParallaxLayer speed={1} offset={2.5}>
           <AboutText theme={theme} device={device} />
         </ParallaxLayer>
-        <ParallaxLayer style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }} speed={0.8} offset={4}>
+        <ParallaxLayer style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} speed={0.8} offset={4}>
           <Carousel theme={theme} device={device} />
         </ParallaxLayer>
-        <ParallaxLayer speed={1} offset={5} onClick={() => parallaxRef.current.scrollTo(2)} onMouseEnter={() => onActiveChange('2')}>
-          <Home theme={theme} device={device} />
+        <ParallaxLayer speed={0.5} offset={5}>
+          <Footer theme={theme} device={device} />
         </ParallaxLayer>
       </Parallax>
     </div>
