@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import tree from '../../../assets/images/tree.jpg'
-import fantasy from '../../../assets/images/fantasy.jpg'
-import forest from '../../../assets/images/forest.jpg'
-import moon from '../../../assets/images/moon.jpg'
-import secret from '../../../assets/images/secret.jpg'
+import tree from '../../assets/images/tree.jpg'
+import fantasy from '../../assets/images/fantasy.jpg'
+import forest from '../../assets/images/forest.jpg'
+import moon from '../../assets/images/moon.jpg'
+import secret from '../../assets/images/secret.jpg'
 import Modal from 'react-bootstrap/Modal';
 import { Col, Row } from 'react-bootstrap'
 
