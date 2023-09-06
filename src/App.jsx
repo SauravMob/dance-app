@@ -98,23 +98,23 @@ const App = () => {
           <ParallaxLayer offset={0} speed={0.5}>
             <Home theme={theme} device={device} />
           </ParallaxLayer>
-          <ParallaxLayer offset={1} speed={1} onMouseEnter={() => onActiveChange('1')}>
+          <ParallaxLayer offset={1} speed={0.5} onMouseEnter={() => onActiveChange('1')}>
             <div className='videoCard'>
               {theme === 'dark' ? <VideoCard src={universe} /> : <VideoCard src={sunset} />}
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={2} factor={1.2} speed={0.5} sticky={{ start: 2, end: 3 }} style={{ zIndex: -1 }}>
+          <ParallaxLayer offset={2} speed={1} sticky={{ start: 2, end: 3 }} style={{ zIndex: -1 }}>
             <div className='about-videoCard'>
               {theme === 'dark' ? <AboutVideo src={universe} /> : <AboutVideo src={sunset} />}
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={3} speed={1} onMouseEnter={() => onActiveChange('2')}>
+          <ParallaxLayer offset={3} speed={2.5} onMouseEnter={() => onActiveChange('2')}>
             <AboutText theme={theme} device={device} />
           </ParallaxLayer>
-          <ParallaxLayer offset={4} speed={0.5} onMouseEnter={() => onActiveChange('3')}>
+          <ParallaxLayer offset={4} speed={0.5} onMouseEnter={() => onActiveChange('3')} className='d-flex justify-content-center align-items-center'>
             <Carousel theme={theme} device={device} />
           </ParallaxLayer>
-          <ParallaxLayer offset={5} speed={0.5} onMouseEnter={() => onActiveChange('4')} style={{ height: '100vh' }}>
+          <ParallaxLayer offset={5} speed={0.5} onMouseEnter={() => onActiveChange('4')}>
             <Footer theme={theme} device={device} />
           </ParallaxLayer>
         </Parallax>
