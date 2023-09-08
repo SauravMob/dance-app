@@ -2,16 +2,16 @@ import React from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 
-const index = ({ device, handleTheme, theme, onActiveChange, onTabChange, activeLink, position }) => {
+const index = ({ device, handleTheme, theme, onActiveChange, activeLink, position }) => {
     return (
-        <Navbar  expand="md" className="bg-body-tertiary">
+        <Navbar expand="lg" className="bg-body-tertiary">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className='justify-content-center'>
                 <Nav className='mouse-follower'>
-                    <Nav.Link onMouseEnter={() => onActiveChange('1')} onClick={() => onTabChange('1')} className={activeLink === '1' && 'link-active'}>Let's explore</Nav.Link>
-                    <Nav.Link onMouseEnter={() => onActiveChange('2')} onClick={() => onTabChange('2')} className={activeLink === '2' && 'link-active'}>Let's meet</Nav.Link>
-                    <Nav.Link onMouseEnter={() => onActiveChange('3')} onClick={() => onTabChange('3')} className={activeLink === '3' && 'link-active'}>Let's attend</Nav.Link>
-                    <Nav.Link onMouseEnter={() => onActiveChange('4')} onClick={() => onTabChange('4')} className={activeLink === '4' && 'link-active'}>Let's dance</Nav.Link>
+                    <Nav.Link onMouseEnter={() => onActiveChange('1')} className={activeLink === '1' && 'link-active'}>Let's explore</Nav.Link>
+                    <Nav.Link onMouseEnter={() => onActiveChange('2')} className={activeLink === '2' && 'link-active'}>Let's meet</Nav.Link>
+                    <Nav.Link onMouseEnter={() => onActiveChange('3')} className={activeLink === '3' && 'link-active'}>Let's attend</Nav.Link>
+                    <Nav.Link onMouseEnter={() => onActiveChange('4')} className={activeLink === '4' && 'link-active'}>Let's dance</Nav.Link>
                     {activeLink !== '' && <span className='glider' style={{ transform: `translateX(${position}px)` }}></span>}
                 </Nav>
             </Navbar.Collapse>

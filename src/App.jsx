@@ -10,13 +10,10 @@ import universe from './components/assets/video/universe.mp4'
 import sunset from './components/assets/video/sunset.mp4'
 import AboutVideo from './components/home/about/videoSection'
 import AboutText from './components/home/about/textSection'
-import Carousel from './components/home/caraousal'
-import Footer from './components/footer/index'
 
 const App = () => {
 
   const [ref, { left, top }] = useMeasure()
-  const parallaxRef = useRef()
 
   const [theme, setTheme] = useState('dark')
   const [device, setDevice] = useState()
@@ -67,57 +64,19 @@ const App = () => {
     else if (tab === '4') setPosition(450)
   }
 
-  const onTabChange = (tab) => {
-    setActiveLink(tab)
-    if (tab === '1') {
-      setPosition(0)
-      parallaxRef.current.scrollTo(1)
-    }
-    else if (tab === '2') {
-      setPosition(150)
-      parallaxRef.current.scrollTo(2)
-    }
-    else if (tab === '3') {
-      setPosition(300)
-      parallaxRef.current.scrollTo(3)
-    }
-    else if (tab === '4') {
-      setPosition(450)
-      parallaxRef.current.scrollTo(4)
-    }
-  }
-
   return (
     <>
       <div ref={ref} className={`App-${theme}`} onMouseMove={handleMouseMove}>
         {trail.map((props, index) => (
           <animated.div className='majorFollower' key={index} style={{ transform: props.xy.to(trans) }} />
         ))}
-        <Navbar device={device} theme={theme} handleTheme={handleTheme} onActiveChange={onActiveChange} onTabChange={onTabChange} activeLink={activeLink} position={position} />
-        <Parallax ref={parallaxRef} style={{ top: 0, left: 0, zIndex: 2 }} pages={6}>
-          <ParallaxLayer offset={0} speed={0.5}>
-            <Home theme={theme} device={device} />
-          </ParallaxLayer>
-          <ParallaxLayer offset={1} speed={0.5} onMouseEnter={() => onActiveChange('1')}>
-            <div className='videoCard'>
-              {theme === 'dark' ? <VideoCard src={universe} /> : <VideoCard src={sunset} />}
-            </div>
-          </ParallaxLayer>
-          <ParallaxLayer offset={2} speed={1} sticky={{ start: 2, end: 3 }} style={{ zIndex: -1 }}>
-            <div className='about-videoCard'>
-              {theme === 'dark' ? <AboutVideo src={universe} /> : <AboutVideo src={sunset} />}
-            </div>
-          </ParallaxLayer>
-          <ParallaxLayer offset={3} speed={2.5} onMouseEnter={() => onActiveChange('2')}>
-            <AboutText theme={theme} device={device} />
-          </ParallaxLayer>
-          <ParallaxLayer offset={4} speed={0.5} onMouseEnter={() => onActiveChange('3')} className='d-flex justify-content-center align-items-center'>
-            <Carousel theme={theme} device={device} />
-          </ParallaxLayer>
-          <ParallaxLayer offset={5} speed={0.5} onMouseEnter={() => onActiveChange('4')}>
-            <Footer theme={theme} device={device} />
-          </ParallaxLayer>
-        </Parallax>
+        <Navbar device={device} theme={theme} handleTheme={handleTheme} onActiveChange={onActiveChange} activeLink={activeLink} position={position} />
+        <Home theme={theme} device={device} />
+        <div className='videoCard'>
+          {theme === 'dark' ? <VideoCard src={universe} /> : <VideoCard src={sunset} />}
+        </div>
+        {theme === 'dark' ? <AboutVideo src={universe} /> : <AboutVideo src={sunset} />}
+        <AboutText theme={theme} device={device} />
       </div>
     </>
   )

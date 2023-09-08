@@ -1,14 +1,14 @@
 /* Theme colors */
 .App-dark {
     background: linear-gradient(90deg, rgba(12, 8, 80, 1) 0%, rgba(59, 64, 138, 1) 44%, rgba(63, 77, 128, 1) 90%, rgba(63, 87, 150, 1) 100%);
-    height: 100vh;
-    overflow: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .App-light {
     background: linear-gradient(90deg, rgba(255, 128, 0, 0.9697128851540616) 0%, rgba(255, 183, 0, 1) 100%, rgba(255, 196, 0, 1) 100%);
-    height: 100vh;
-    overflow: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .App-light .navbar {
@@ -46,11 +46,11 @@
 }
 
 .App-dark .about-videoCard {
-    background-color: #30429d;
+    background-color: #8524f4;
 }
 
 .App-light .about-videoCard {
-    background-color: #c36b34;
+    background-color: #eb750f;
 }
 
 
@@ -65,14 +65,13 @@
     border-radius: 50%;
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
     opacity: 30%;
-    z-index: 2;
+    z-index: 0;
     filter: blur(20px);
 }
 
 /* Navbar styles */
 
 /* Toggle Switch */
-/* ToggleSwitch css */
 .switch {
     position: absolute;
     display: inline-block;
@@ -221,61 +220,82 @@
 }
 
 /* Home styles */
+.home {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
 .top-logo {
     position: absolute;
-    top: 25%;
-    left: 12%;
+    top: 22%;
+    left: 14%;
+    width: 40%;
     height: 40%;
+    z-index: 2;
 }
 
 .bottom-logo {
     position: absolute;
-    top: 50%;
-    left: 52%;
+    bottom: 13%;
+    right: 8%;
+    width: 40%;
     height: 40%;
 }
 
 .video-box {
-    height: 35%;
-    width: 25%;
     position: absolute;
-    top: 42%;
-    left: 37%;
-    border-radius: 20px;
-    opacity: 70%;
+    top: calc(50% - 15%);
+    left: calc(50% - 15%);
+    width: 30%;
+    height: 35%;
+    z-index: 1;
 }
 
 .video-box video {
     width: 100%;
     height: 100%;
     border-radius: 20px;
-    object-fit: cover;
-    overflow: hidden;
     box-shadow: 6px 6px 12px #141414, -6px -6px 12px #120c0c;
     opacity: 0.9;
 }
 
 /* VideoCard styles */
 .videoCard {
-    width: 102vw;
+    top: 98vh;
+    position: relative;
     cursor: none;
+    height: 100vh;
 }
 
 .videoCard video {
-    height: 750px;
-    object-fit: cover;
+    height: 100%;
     width: 100%;
+    object-fit: cover;
     border-radius: 180px;
     box-shadow: 6px 6px 12px #141414, -6px -6px 12px #120c0c;
     opacity: 0.9;
 }
 
 /* About Section styles */
+.about-videoCard {
+    position: relative;
+    height: 100vh;
+    top: 100vh;
+}
+
 .about-videoCard video {
-    height: 550px;
+    position: relative;
+    top: 150%;
+    width: 95%;
+    left: 5%;
+    height: 300%;
     object-fit: cover;
-    width: 100%;
-    border-radius: 180px;
+    border-radius: 300px;
     box-shadow: 6px 6px 12px #141414, -6px -6px 12px #120c0c;
     opacity: 0.9;
 }
@@ -287,48 +307,6 @@
     font-style: italic;
     padding: 30px;
     opacity: 0.8;
-    z-index: 10;
-}
-
-/* Carousels styles */
-.group {
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.item {
-    width: 15vw;
-    height: 75vh;
-    background-position: center;
-    background-size: 75vh;
-    margin: 1vw;
-    border-radius: 3vw;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.active-url {
-    width: 42vw;
-    transition: transform 2s ease-in;
-    filter: brightness(100%)
-}
-
-.unactive-url {
-    width: 8vw;
-    transition: transform 0.4s ease-out;
-    transform: scale(0.85);
-    opacity: 0.7;
-    filter: grayscale(100%);
-}
-
-.modal {
-    animation: bounceIn 1s;
-    transition: opacity 0.8s ease-in-out;
-}
-
-.modal-body {
-    padding: 0 !important;
 }
 
 @keyframes bounceIn {
@@ -343,9 +321,4 @@
     100% {
         transform: scale(1);
     }
-}
-
-/* Footer styles */
-.footer-logo {
-    padding: 50px;
 }

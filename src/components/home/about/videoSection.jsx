@@ -9,15 +9,17 @@ const AboutVideo = ({ src }) => {
     }, [src])
 
     return (
-        <Row>
-            <Col lg={3} style={{ padding: '40px', marginTop: '30px' }}>
-                <video autoPlay loop muted ref={videoRef}>
-                    <source src={src} type='video/mp4'></source>
-                </video>
-            </Col>
-            <Col>
-            </Col>
-        </Row>
+        <div className='about-videoCard'>
+            <Row>
+                <Col lg={3} className='d-flex justify-content-center align-items-center'>
+                    <video autoPlay loop muted ref={videoRef}>
+                        <source src={src} type='video/mp4'></source>
+                    </video>
+                </Col>
+                <Col>
+                </Col>
+            </Row>
+        </div>
     )
 }
 
