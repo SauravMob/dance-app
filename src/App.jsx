@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTrail, animated } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
 import './App.css'
