@@ -10,6 +10,7 @@ import universe from './components/assets/video/universe.mp4'
 import sunset from './components/assets/video/sunset.mp4'
 import AboutVideo from './components/home/about/videoSection'
 import AboutText from './components/home/about/textSection'
+import Carousel from './components/home/carousel'
 
 const App = () => {
 
@@ -77,6 +78,7 @@ const App = () => {
         </div>
         {theme === 'dark' ? <AboutVideo src={universe} /> : <AboutVideo src={sunset} />}
         <AboutText theme={theme} device={device} />
+        <Carousel />
       </div>
     </>
   )
