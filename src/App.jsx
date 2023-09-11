@@ -3,7 +3,6 @@ import { useTrail, animated } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
 import './App.css'
 import Navbar from './components/navbar/index'
-import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import Home from './components/home'
 import VideoCard from './components/home/videoCard'
 import universe from './components/assets/video/universe.mp4'
@@ -11,6 +10,7 @@ import sunset from './components/assets/video/sunset.mp4'
 import AboutVideo from './components/home/about/videoSection'
 import AboutText from './components/home/about/textSection'
 import Carousel from './components/home/carousel'
+import SplitSection from './components/home/splitSection'
 
 const App = () => {
 
@@ -78,6 +78,7 @@ const App = () => {
         </div>
         {theme === 'dark' ? <AboutVideo src={universe} /> : <AboutVideo src={sunset} />}
         <AboutText theme={theme} device={device} />
+        <SplitSection theme={theme} device={device} />
         <Carousel />
       </div>
     </>
