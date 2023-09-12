@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTrail, animated } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
 import './App.css'
@@ -16,14 +16,16 @@ import { Fade } from 'react-awesome-reveal'
 const App = () => {
 
   const [ref, { left, top }] = useMeasure()
+  const target = useRef()
 
   const [theme, setTheme] = useState('dark')
   const [device, setDevice] = useState()
   const [position, setPosition] = useState(0)
   const [activeLink, setActiveLink] = useState('')
+  const [scrollY, setScrollY] = useState(0)
 
   // Variables
-  const trans = (x, y) => `translate3d(${x}px,${y}px,0) translate3d(-50%,-50%,0)`
+  const trans = (x, y) => `translate3d(${x}px,${y + scrollY}px,0) translate3d(-50%,-50%,0)`
 
   // Hooks
   const [trail, api] = useTrail(1, i => ({
@@ -45,6 +47,17 @@ const App = () => {
 
     return () => {
       window.removeEventListener("resize", handleResize)
+    }
+  }, [])
+
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
     }
   }, [])
 
@@ -74,14 +87,12 @@ const App = () => {
         ))}
         <Navbar device={device} theme={theme} handleTheme={handleTheme} onActiveChange={onActiveChange} activeLink={activeLink} position={position} />
         <Fade duration={3000} triggerOnce={false}>
-          <Home theme={theme} device={device} />
+          <Home theme={theme} device={device} target={target} />
         </Fade>
         <div className='videoCard'>
           {theme === 'dark' ? <VideoCard src={universe} /> : <VideoCard src={sunset} />}
         </div>
-        <Fade duration={3000} triggerOnce={false}>
-          {theme === 'dark' ? <AboutVideo src={universe} /> : <AboutVideo src={sunset} />}
-        </Fade>
+        {theme === 'dark' ? <AboutVideo src={universe} /> : <AboutVideo src={sunset} />}
         <Fade duration={3000} triggerOnce={false}>
           <AboutText theme={theme} device={device} />
         </Fade>

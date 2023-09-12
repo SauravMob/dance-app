@@ -2,11 +2,32 @@ import React from 'react'
 import VideoCard from './videoCard/index';
 import universe from '../assets/video/universe.mp4'
 import sunset from '../assets/video/sunset.mp4'
+import { useParallax } from 'react-scroll-parallax';
 
-const Home = ({ theme, device }) => {
+const Home = ({ theme, device, target }) => {
+
+    const topLogo = useParallax({
+        speed: 20,
+        targetElement: target.current,
+        opacity: [10, 0]
+    })
+
+    const bottomLogo = useParallax({
+        speed: 20,
+        targetElement: target.current,
+        opacity: [10, 0]
+    })
+
+    const midVideo = useParallax({
+        speed: 10,
+        targetElement: target.current,
+        opacity: [10, 0],
+        scale: [0, 10, 'easeInCirc']
+    })
+
     return (
-        <div className='home'>
-            <div className='top-logo'>
+        <div className='home' ref={target}>
+            <div className='top-logo' ref={topLogo.ref}>
                 <svg style={{ color: 'white', height: '100%', width: '100%' }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 831 402">
                     <g>
                         <path d="M336.98,53.98h-25.74V195.35h25.74V53.98Z" fill="currentColor"></path>
@@ -17,10 +38,10 @@ const Home = ({ theme, device }) => {
                     </g>
                 </svg>
             </div>
-            {device === 'LAPTOP' && <div className='video-box'>
+            <div className='video-box' ref={midVideo.ref}>
                 {theme === 'dark' ? <VideoCard src={universe} /> : <VideoCard src={sunset} />}
-            </div>}
-            <div className='bottom-logo'>
+            </div>
+            <div className='bottom-logo' ref={bottomLogo.ref}>
                 <svg style={{ color: 'white', height: '100%', width: '100%' }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 831 402">
                     <g>
                         <path d="M445.93,255.95c-32.83,0-52.58,20.49-57.71,50.71v-48.15h-27.48c-1.14,24.23-1.99,43.55-5.09,69.92-5.3,45.02-21.8,51.73-28.98,51.73-4.87,0-8.47-3.07-8.47-11.53v-53.78c0-40.72-23.85-58.91-61.3-58.91-34.88,0-56.68,14.85-56.68,38.68,0,21,20.26,28.69,56.43,30.48-35.65,3.85-67.2,15.37-67.2,44.31,0,19.46,15.65,32.52,37.71,32.52,40.27,0,52.58-38.68,52.58-75.81h12.83v50.19c0,18.19,11.03,25.61,23.6,25.61,18.73,0,37.36-16.86,42.07-70.68,1.93-22.17,3.38-37.91,4.35-56.05v124.18h25.65v-76.83c0-29.97,20.52-44.82,46.17-44.82s41.04,14.85,41.04,44.82v76.83h25.65v-81.95c0-38.16-19.23-61.46-55.15-61.46h0Zm-209.81,124.2c-13.33,0-22.31-6.65-22.31-20.49,0-20.74,20.01-33.55,63.35-33.55,0,32.52-13.33,54.04-41.04,54.04h0Zm56.43-56.6h-15.39c-46.17,0-65.4-6.4-65.4-24.08,0-14.34,15.13-21.77,36.68-21.77,36.42,0,44.11,20.49,44.11,39.7v6.14h0Z" fill="currentColor"></path>
