@@ -11,6 +11,7 @@ import AboutVideo from './components/home/about/videoSection'
 import AboutText from './components/home/about/textSection'
 import Carousel from './components/home/carousel'
 import SplitSection from './components/home/splitSection'
+import { Fade } from 'react-awesome-reveal'
 
 const App = () => {
 
@@ -72,14 +73,24 @@ const App = () => {
           <animated.div className='majorFollower' key={index} style={{ transform: props.xy.to(trans) }} />
         ))}
         <Navbar device={device} theme={theme} handleTheme={handleTheme} onActiveChange={onActiveChange} activeLink={activeLink} position={position} />
-        <Home theme={theme} device={device} />
+        <Fade duration={3000} triggerOnce={false}>
+          <Home theme={theme} device={device} />
+        </Fade>
         <div className='videoCard'>
           {theme === 'dark' ? <VideoCard src={universe} /> : <VideoCard src={sunset} />}
         </div>
-        {theme === 'dark' ? <AboutVideo src={universe} /> : <AboutVideo src={sunset} />}
-        <AboutText theme={theme} device={device} />
-        <SplitSection theme={theme} device={device} />
-        <Carousel />
+        <Fade duration={3000} triggerOnce={false}>
+          {theme === 'dark' ? <AboutVideo src={universe} /> : <AboutVideo src={sunset} />}
+        </Fade>
+        <Fade duration={3000} triggerOnce={false}>
+          <AboutText theme={theme} device={device} />
+        </Fade>
+        <Fade duration={3000} triggerOnce={false}>
+          <SplitSection theme={theme} device={device} />
+        </Fade>
+        <Fade duration={3000} triggerOnce={false}>
+          <Carousel />
+        </Fade>
       </div>
     </>
   )
