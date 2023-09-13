@@ -12,7 +12,7 @@ import AboutText from './components/home/about/textSection'
 import Carousel from './components/home/carousel'
 import SplitSection from './components/home/splitSection'
 import { Fade } from 'react-awesome-reveal'
-import Footer from './components/home/footer'
+import Footer from './components/footer'
 
 const App = () => {
 
@@ -54,17 +54,6 @@ const App = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY)
-      if (window.scrollY >= 2100 && window.scrollY < 2880) {
-        onActiveChange('1')
-      } else if (window.scrollY >= 2880 && window.scrollY < 4000) {
-        onActiveChange('2')
-      } else if (window.scrollY >= 4000 && window.scrollY < 4700) {
-        onActiveChange('3')
-      } else if (window.scrollY >= 4700) {
-        onActiveChange('4')
-      } else {
-        setActiveLink('')
-      }
     }
     window.addEventListener('scroll', handleScroll)
     return () => {
@@ -113,7 +102,7 @@ const App = () => {
         <Fade duration={3000} triggerOnce={false}>
           <Carousel />
         </Fade>
-        <Fade>
+        <Fade duration={3000} triggerOnce={false}>
           <Footer theme={theme} device={device} />
         </Fade>
       </div>
