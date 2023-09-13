@@ -12,6 +12,7 @@ import AboutText from './components/home/about/textSection'
 import Carousel from './components/home/carousel'
 import SplitSection from './components/home/splitSection'
 import { Fade } from 'react-awesome-reveal'
+import Footer from './components/home/footer'
 
 const App = () => {
 
@@ -101,6 +102,9 @@ const App = () => {
         </Fade>
         <Fade duration={3000} triggerOnce={false}>
           <Carousel />
+        </Fade>
+        <Fade>
+          <Footer theme={theme} device={device} />
         </Fade>
       </div>
     </>
