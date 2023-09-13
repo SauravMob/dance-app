@@ -1,3 +1,61 @@
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('./components/assets/fonts/HelveticaNeue-Medium.woff2') format('woff2'),
+    url('./components/assets/fonts/HelveticaNeue-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('./components/assets/fonts/HelveticaNeue-Light.woff2') format('woff2'),
+    url('./components/assets/fonts/HelveticaNeue-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('./components/assets/fonts/HelveticaNeue-LightExt.woff2') format('woff2'),
+    url('./components/assets/fonts/HelveticaNeue-LightExt.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('./components/assets/fonts/HelveticaNeue-Light.woff2') format('woff2'),
+    url('./components/assets/fonts/HelveticaNeue-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('./components/assets/fonts/HelveticaNeue-Medium.woff2') format('woff2'),
+    url('./components/assets/fonts/HelveticaNeue-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('./components/assets/fonts/HelveticaNeue-ThinItalic.woff2') format('woff2'),
+    url('./components/assets/fonts/HelveticaNeue-ThinItalic.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+
+
+
 :root {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -14,6 +72,7 @@
 }
 
 body {
+  font-family: 'Helvetica Neue';
   height: 100%;
   width: 100%;
 }
