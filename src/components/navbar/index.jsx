@@ -3,6 +3,8 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 
 const index = ({ device, handleTheme, theme, onActiveChange, activeLink, position }) => {
+
+    console.log("position:", position)
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

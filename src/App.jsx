@@ -51,10 +51,21 @@ const App = () => {
     }
   }, [])
 
-
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY)
+      console.log("ScrollY:", window.scrollY)
+      if (window.scrollY >= 2100 && window.scrollY < 2880) {
+        onActiveChange('1')
+      } else if (window.scrollY >= 2880 && window.scrollY < 4000) {
+        onActiveChange('2')
+      } else if (window.scrollY >= 4000 && window.scrollY < 4700) {
+        onActiveChange('3')
+      } else if (window.scrollY >= 4700) {
+        onActiveChange('4')
+      } else {
+        setActiveLink('')
+      }
     }
     window.addEventListener('scroll', handleScroll)
     return () => {
