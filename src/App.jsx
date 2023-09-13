@@ -54,7 +54,6 @@ const App = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY)
-      console.log("ScrollY:", window.scrollY)
       if (window.scrollY >= 2100 && window.scrollY < 2880) {
         onActiveChange('1')
       } else if (window.scrollY >= 2880 && window.scrollY < 4000) {
@@ -88,7 +87,7 @@ const App = () => {
     if (tab === '1') setPosition(0)
     else if (tab === '2') setPosition(150)
     else if (tab === '3') setPosition(300)
-    else if (tab === '4') setPosition(450)
+    else if (tab === '4') setPosition(455)
   }
 
   return (

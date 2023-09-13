@@ -35,16 +35,6 @@
     background-color: rgb(31 0 94);
 }
 
-.App-light .link-active {
-    background-color: rgb(255 158 2);
-    color: rgb(255 255 255 / 80%);
-}
-
-.App-dark .link-active {
-    background-color: rgb(31 0 94);
-    color: rgb(255 255 255 / 80%);
-}
-
 .App-dark .about-videoCard {
     background-color: #8309c0;
 }
@@ -147,7 +137,7 @@
     right: 0;
     bottom: 0;
     background-color: #73C0FC;
-    transition: .4s;
+    transition: 1s;
     border-radius: 30px;
 }
 
@@ -266,6 +256,7 @@
 .link-active {
     z-index: 1;
     border-radius: 30px;
+    color: rgb(255 255 255 / 80%);
 }
 
 .nav-link:hover {
@@ -515,7 +506,7 @@
 }
 
 .ambassador-slider {
-    width: 50%;
+    width: 45%;
     height: 32vw;
     perspective: 1600px;
     margin-top: 7%;
