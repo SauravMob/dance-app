@@ -1,18 +1,54 @@
 import React from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
+import { Link } from 'react-scroll'
 
-const index = ({ device, handleTheme, theme, onActiveChange, activeLink, position }) => {
+const index = ({ device, handleTheme, theme }) => {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className='justify-content-center'>
                 <Nav className='mouse-follower'>
-                    <Nav.Link onMouseEnter={() => onActiveChange('1')} className={activeLink === '1' && 'link-active'}>Let's explore</Nav.Link>
-                    <Nav.Link onMouseEnter={() => onActiveChange('2')} className={activeLink === '2' && 'link-active'}>Let's meet</Nav.Link>
-                    <Nav.Link onMouseEnter={() => onActiveChange('3')} className={activeLink === '3' && 'link-active'}>Let's attend</Nav.Link>
-                    <Nav.Link onMouseEnter={() => onActiveChange('4')} className={activeLink === '4' && 'link-active'}>Let's dance</Nav.Link>
-                    {activeLink !== '' && <span className='glider' style={{ transform: `translateX(${position}px)` }}></span>}
+                    <Link
+                        activeClass="active"
+                        to="home"
+                        spy={true}
+                        smooth={true}
+                        duration={500}
+                        className='nav-link'
+                    >
+                        Let's explore
+                    </Link>
+                    <Link
+                        activeClass="active"
+                        to="about"
+                        spy={true}
+                        smooth={true}
+                        duration={500}
+                        className='nav-link'
+                    >
+                        Let's meet
+                    </Link>
+                    <Link
+                        activeClass="active"
+                        to="splitSection"
+                        spy={true}
+                        smooth={true}
+                        duration={500}
+                        className='nav-link'
+                    >
+                        Let's attend
+                    </Link>
+                    <Link
+                        activeClass="active"
+                        to="carousels"
+                        spy={true}
+                        smooth={true}
+                        duration={500}
+                        className='nav-link'
+                    >
+                        Let's dance
+                    </Link>
                 </Nav>
             </Navbar.Collapse>
             <label className="switch" style={{ right: '34px' }}>

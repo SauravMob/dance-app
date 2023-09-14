@@ -13,6 +13,7 @@ import Carousel from './components/home/carousel'
 import SplitSection from './components/home/splitSection'
 import { Fade } from 'react-awesome-reveal'
 import Footer from './components/footer'
+import { Element } from 'react-scroll'
 
 const App = () => {
 
@@ -21,8 +22,6 @@ const App = () => {
 
   const [theme, setTheme] = useState('dark')
   const [device, setDevice] = useState()
-  const [position, setPosition] = useState(0)
-  const [activeLink, setActiveLink] = useState('')
   const [scrollY, setScrollY] = useState(0)
 
   // Variables
@@ -71,37 +70,37 @@ const App = () => {
     else setTheme('light')
   }
 
-  const onActiveChange = (tab) => {
-    setActiveLink(tab)
-    if (tab === '1') setPosition(0)
-    else if (tab === '2') setPosition(150)
-    else if (tab === '3') setPosition(300)
-    else if (tab === '4') setPosition(455)
-  }
-
   return (
     <>
       <div ref={ref} className={`App-${theme}`} onMouseMove={handleMouseMove}>
         {trail.map((props, index) => (
           <animated.div className='majorFollower' key={index} style={{ transform: props.xy.to(trans) }} />
         ))}
-        <Navbar device={device} theme={theme} handleTheme={handleTheme} onActiveChange={onActiveChange} activeLink={activeLink} position={position} />
-        <Fade duration={3000} triggerOnce={false}>
-          <Home theme={theme} device={device} target={target} />
-        </Fade>
+        <Navbar device={device} theme={theme} handleTheme={handleTheme} />
+        <Element name="home" className="home">
+          <Fade duration={3000} triggerOnce={false}>
+            <Home theme={theme} device={device} target={target} />
+          </Fade>
+        </Element>
         <div className='videoCard'>
           {theme === 'dark' ? <VideoCard src={universe} /> : <VideoCard src={sunset} />}
         </div>
-        {theme === 'dark' ? <AboutVideo src={universe} /> : <AboutVideo src={sunset} />}
-        <Fade duration={3000} triggerOnce={false}>
-          <AboutText theme={theme} device={device} />
-        </Fade>
-        <Fade duration={3000} triggerOnce={false}>
-          <SplitSection theme={theme} device={device} />
-        </Fade>
-        <Fade duration={3000} triggerOnce={false}>
-          <Carousel />
-        </Fade>
+        <Element name="about" className="about">
+          {theme === 'dark' ? <AboutVideo src={universe} /> : <AboutVideo src={sunset} />}
+          <Fade duration={3000} triggerOnce={false}>
+            <AboutText theme={theme} device={device} />
+          </Fade>
+        </Element>
+        <Element name="splitSection" className="splitSection">
+          <Fade duration={3000} triggerOnce={false}>
+            <SplitSection theme={theme} device={device} />
+          </Fade>
+        </Element>
+        <Element name="carousels" className="carousels">
+          <Fade duration={3000} triggerOnce={false}>
+            <Carousel />
+          </Fade>
+        </Element>
         <Fade duration={3000} triggerOnce={false}>
           <Footer theme={theme} device={device} />
         </Fade>

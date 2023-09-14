@@ -27,12 +27,22 @@
     background: linear-gradient(90deg, rgba(12, 8, 80, 1) 0%, rgba(59, 64, 138, 1) 44%, rgba(63, 77, 128, 1) 90%, rgba(63, 87, 150, 1) 100%);
 }
 
-.App-light .glider {
-    background-color: rgb(255 158 2);
+.App-light .nav-link:hover {
+    background-color: rgb(235, 172, 70);
 }
 
-.App-dark .glider {
+.App-dark .nav-link:hover {
+    background-color: rgb(113, 89, 163);
+}
+
+.App-dark .navbar-nav .nav-link.active,
+.App-dark .navbar-nav .nav-link.show {
     background-color: rgb(31 0 94);
+}
+
+.App-light .navbar-nav .nav-link.active,
+.App-light .navbar-nav .nav-link.show {
+    background-color: rgb(255 158 2);
 }
 
 .App-dark .about-videoCard {
@@ -241,22 +251,14 @@
     font-weight: 500;
     padding: 20px 34.5px !important;
     color: #161616;
+    border-radius: 90px;
     font-size: 15px;
 }
 
-.glider {
-    position: absolute;
-    display: flex;
-    height: 63px;
-    width: 150px;
-    border-radius: 99px;
-    transition: 0.4s ease-out;
-}
-
-.link-active {
-    z-index: 1;
-    border-radius: 30px;
-    color: rgb(255 255 255 / 80%);
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+    color: #fff;
+    transition: all .8s linear;
 }
 
 .nav-link:hover {
