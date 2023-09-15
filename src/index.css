@@ -52,6 +52,15 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Adieu';
+  src: url('./components/assets/fonts/Adieu-Regular.woff2') format('woff2'),
+      url('./components/assets/fonts/Adieu-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 
 

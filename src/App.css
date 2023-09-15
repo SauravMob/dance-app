@@ -1,3 +1,8 @@
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Adieu';
+}
+
+
 /* Theme colors */
 .App-dark {
     background: linear-gradient(90deg, rgba(12, 8, 80, 1) 0%, rgba(59, 64, 138, 1) 44%, rgba(63, 77, 128, 1) 90%, rgba(63, 87, 150, 1) 100%);
@@ -128,9 +133,9 @@
 .switch {
     position: absolute;
     display: inline-block;
-    width: 64px;
-    height: 34px;
-    top: 16px;
+    width: 60px;
+    height: 30px;
+    top: 26px;
 }
 
 .switch input {
@@ -154,11 +159,11 @@
 .slider:before {
     position: absolute;
     content: "";
-    height: 30px;
-    width: 30px;
+    height: 28px;
+    width: 28px;
     border-radius: 20px;
     left: 2px;
-    bottom: 2px;
+    bottom: 1px;
     z-index: 2;
     background-color: #e8e8e8;
     transition: .4s;
@@ -166,8 +171,8 @@
 
 .sun svg {
     position: absolute;
-    top: 6px;
-    left: 36px;
+    top: 4px;
+    left: 32px;
     z-index: 1;
     width: 24px;
     height: 24px;
@@ -179,8 +184,8 @@
     top: 5px;
     left: 5px;
     z-index: 1;
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
 }
 
 .switch:hover .sun svg {
@@ -700,3 +705,5 @@
 .facebook:hover:after {
     transform: translateX(100%);
 }
+
+

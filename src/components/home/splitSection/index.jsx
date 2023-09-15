@@ -10,9 +10,9 @@ const SplitSection = ({ theme }) => {
         <Row className="split-section">
             <Col className="recreationalDance">
                 <Row>
-                    <h1 className="d-flex justify-content-center alig-items-center">
+                    <h2 className="d-flex justify-content-center alig-items-center">
                         Recreational Dance
-                    </h1>
+                    </h2>
                 </Row>
                 <Row className="splitSection-image mt-3">
                     <img src={theme === "dark" ? leftNight : leftDay} height="100%" width="100%" />
@@ -25,9 +25,9 @@ const SplitSection = ({ theme }) => {
             </Col>
             <Col className="professionalDance">
                 <Row>
-                    <h1 className="d-flex justify-content-center alig-items-center">
+                    <h2 className="d-flex justify-content-center alig-items-center">
                         Professional Dance
-                    </h1>
+                    </h2>
                 </Row>
                 <Row className="splitSection-image mt-3">
                     <img src={theme === "dark" ? rightNight : rightDay} height="100%" width="100%" />
