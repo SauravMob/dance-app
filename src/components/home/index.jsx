@@ -19,7 +19,7 @@ const Home = ({ theme, device, target }) => {
     })
 
     const midVideo = useParallax({
-        speed: 10,
+        speed: -60,
         targetElement: target.current,
         opacity: [10, 0],
         scale: [0, 10, 'easeInCirc']

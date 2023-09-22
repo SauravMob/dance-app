@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import { useTrail, animated } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
 import './App.css'
@@ -7,13 +7,12 @@ import Home from './components/home'
 import VideoCard from './components/home/videoCard'
 import universe from './components/assets/video/universe.mp4'
 import sunset from './components/assets/video/sunset.mp4'
-import AboutVideo from './components/home/about/videoSection'
-import AboutText from './components/home/about/textSection'
+import AboutVideo from './components/home/about/index'
 import Carousel from './components/home/carousel'
 import SplitSection from './components/home/splitSection'
-import { Fade } from 'react-awesome-reveal'
 import Footer from './components/footer'
 import { Element } from 'react-scroll'
+import { useParallax } from 'react-scroll-parallax'
 
 const App = () => {
 
@@ -70,6 +69,11 @@ const App = () => {
     else setTheme('light')
   }
 
+  const videoCardRef = useParallax({
+    targetElement: target.current,
+    opacity: [0, 10]
+  })
+
   return (
     <>
       <div ref={ref} className={`App-${theme}`} onMouseMove={handleMouseMove}>
@@ -77,33 +81,34 @@ const App = () => {
           <animated.div className='majorFollower' key={index} style={{ transform: props.xy.to(trans) }} />
         ))}
         <Navbar device={device} theme={theme} handleTheme={handleTheme} />
-        <Element name="home" className="home">
-          <Fade duration={3000} triggerOnce={false}>
+        <Fragment>
+          <Element name="home" className="home">
             <Home theme={theme} device={device} target={target} />
-          </Fade>
-        </Element>
-        <div className='videoCard'>
-          {theme === 'dark' ? <VideoCard src={universe} /> : <VideoCard src={sunset} />}
-        </div>
-        <Element name="about" className="about">
-          {theme === 'dark' ? <AboutVideo src={universe} /> : <AboutVideo src={sunset} />}
-          <Fade duration={3000} triggerOnce={false}>
-            <AboutText theme={theme} device={device} />
-          </Fade>
-        </Element>
-        <Element name="splitSection" className="splitSection">
-          <Fade duration={3000} triggerOnce={false}>
+          </Element>
+        </Fragment>
+        <Fragment>
+          <div className='videoCard' ref={videoCardRef.ref}>
+            {theme === 'dark' ? <VideoCard src={universe} /> : <VideoCard src={sunset} />}
+          </div>
+        </Fragment>
+        <Fragment>
+          <Element name="about" className="about">
+            {theme === 'dark' ? <AboutVideo src={universe} /> : <AboutVideo src={sunset} />}
+          </Element>
+        </Fragment>
+        <Fragment>
+          <Element name="splitSection" className="splitSection">
             <SplitSection theme={theme} device={device} />
-          </Fade>
-        </Element>
-        <Element name="carousels" className="carousels">
-          <Fade duration={3000} triggerOnce={false}>
+          </Element>
+        </Fragment>
+        <Fragment>
+          <Element name="carousels" className="carousels">
             <Carousel />
-          </Fade>
-        </Element>
-        <Fade duration={3000} triggerOnce={false}>
+          </Element>
+        </Fragment>
+        <Fragment>
           <Footer theme={theme} device={device} />
-        </Fade>
+        </Fragment>
       </div>
     </>
   )

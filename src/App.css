@@ -298,9 +298,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .video-box {
-    position: fixed;
-    top: calc(50% - 15%);
-    left: calc(50% - 15%);
+    position: relative;
+    top: 5%;
+    left: 34%;
     width: 30%;
     height: 35%;
     z-index: 1;
@@ -317,10 +317,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* VideoCard styles */
 .videoCard {
-    position: relative;
-    top: 100vh;
     cursor: none;
-    height: 100vh;
+    height: 110vh;
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -336,39 +334,38 @@ h1, h2, h3, h4, h5, h6 {
 
 /* About Section styles */
 .about-videoCard {
-    position: relative;
     height: 100vh;
-    top: 100vh;
 }
 
-.about-videoCard video {
-    position: relative;
-    top: 150%;
-    width: 95%;
-    left: 5%;
-    height: 300%;
-    object-fit: cover;
+.video-section {
+    padding: 40px;
+    height: 100%;
+}
+
+.video-section video {
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
     border-radius: 300px;
     box-shadow: 6px 6px 12px #141414, -6px -6px 12px #120c0c;
     opacity: 0.9;
 }
 
-.about-text-section {
-    position: relative;
-    top: 0;
-    height: 100vh;
+.text-section {
     font-size: 42px;
     color: #fff;
+    height: 100%;
     font-weight: 600;
     font-style: italic;
-    padding: 30px;
     opacity: 0.8;
+    padding: 30px;
 }
 
 /* Split section styles */
 .split-section {
-    position: relative;
     height: 140vh;
+    z-index: 1;
+    position: relative;
 }
 
 .split-section>.col {
@@ -504,8 +501,6 @@ h1, h2, h3, h4, h5, h6 {
 /* Carousel styles */
 
 .carousel {
-    position: relative;
-    top: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
