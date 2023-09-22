@@ -11,53 +11,25 @@ import axelle_munezero from '../../assets/images/axelle_munezero.jpg'
 const Carousel = () => {
 
   const [activeCarousel, setActiveCarousel] = useState(1)
+  const imgArray = [adriano_leropoli_samantha_scali, valerie_chartier, naomi_hilaire_guillaume_michaud, francine_liboiron_raphael_bouchard, barbara_kaneratonni_diabo, axelle_munezero, carol_prieur_emmanuel_jouthe,]
 
   return (
     <div className='carousel'>
       <div className="ambassador-slider" id="slider">
-        <input type="radio" name="slider" id="s1" className="radiobtn" checked={activeCarousel === 1} onChange={() => setActiveCarousel(1)} />
-        <input type="radio" name="slider" id="s2" className="radiobtn" checked={activeCarousel === 2} onChange={() => setActiveCarousel(1)} />
-        <input type="radio" name="slider" id="s3" className="radiobtn" checked={activeCarousel === 3} onChange={() => setActiveCarousel(1)} />
-        <input type="radio" name="slider" id="s4" className="radiobtn" checked={activeCarousel === 4} onChange={() => setActiveCarousel(1)} />
-        <input type="radio" name="slider" id="s5" className="radiobtn" checked={activeCarousel === 5} onChange={() => setActiveCarousel(1)} />
-        <input type="radio" name="slider" id="s6" className="radiobtn" checked={activeCarousel === 6} onChange={() => setActiveCarousel(1)} />
-        <input type="radio" name="slider" id="s7" className="radiobtn" checked={activeCarousel === 7} onChange={() => setActiveCarousel(1)} />
-
-        <label htmlFor="s1" id="slide1" className="label1" onClick={() => setActiveCarousel(1)}>
-          <div className="ambassador-slider-img">
-            <img src={adriano_leropoli_samantha_scali} alt="fantasy" />
-          </div>
-        </label>
-        <label htmlFor="s2" id="slide2" className="label2" onClick={() => setActiveCarousel(2)}>
-          <div className="ambassador-slider-img">
-            <img src={valerie_chartier} alt="forest" />
-          </div>
-        </label>
-        <label htmlFor="s3" id="slide3" className="label3" onClick={() => setActiveCarousel(3)}>
-          <div className="ambassador-slider-img">
-            <img src={naomi_hilaire_guillaume_michaud} alt="left day" />
-          </div>
-        </label>
-        <label htmlFor="s4" id="slide4" className="label4" onClick={() => setActiveCarousel(4)}>
-          <div className="ambassador-slider-img">
-            <img src={francine_liboiron_raphael_bouchard} alt="left night" />
-          </div>
-        </label>
-        <label htmlFor="s5" id="slide5" className="label5" onClick={() => setActiveCarousel(5)}>
-          <div className="ambassador-slider-img">
-            <img src={barbara_kaneratonni_diabo} alt="barbara_kaneratonni_diabo" />
-          </div>
-        </label>
-        <label htmlFor="s6" id="slide6" className="label6" onClick={() => setActiveCarousel(6)}>
-          <div className="ambassador-slider-img">
-            <img src={axelle_munezero} alt="axelle_munezero" />
-          </div>
-        </label>
-        <label htmlFor="s7" id="slide7" className="label7" onClick={() => setActiveCarousel(7)}>
-          <div className="ambassador-slider-img">
-            <img src={carol_prieur_emmanuel_jouthe} alt="carol_prieur_emmanuel_jouthe" />
-          </div>
-        </label>
+        {imgArray.map((val, key) => {
+          return (
+            <input type="radio" name="slider" id={`s${key}`} className="radiobtn" checked={activeCarousel === key} onChange={() => setActiveCarousel(key)} />
+          )
+        })}
+        {imgArray.map((value, key) => {
+          return (
+            <label htmlFor={`s${key}`} id={`slide${key}`} className={`label${key}`} onClick={() => setActiveCarousel(key)}>
+              <div className="ambassador-slider-img">
+                <img src={value} alt={value} />
+              </div>
+            </label>
+          )
+        })}
       </div>
     </div>
   )
