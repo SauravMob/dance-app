@@ -1,9 +1,14 @@
 import React, { useEffect, useRef } from 'react'
 import { Fade, Slide } from 'react-awesome-reveal'
 import { Col, Row } from 'react-bootstrap'
+import { useParallax } from 'react-scroll-parallax'
 
 const AboutVideo = ({ src }) => {
+
     const videoRef = useRef()
+    const video = useParallax({
+        translateX: [-30, 30]
+    })
 
     useEffect(() => {
         videoRef.current?.load()
@@ -12,12 +17,10 @@ const AboutVideo = ({ src }) => {
     return (
         <Fade duration={3000} triggerOnce={false}>
             <Row className='about-videoCard'>
-                <Col lg={3} className='video-section'>
-                    <Slide direction='left' duration={2000} triggerOnce={false} style={{ height: '100%', width: '100%' }}>
-                        <video autoPlay loop muted ref={videoRef}>
-                            <source src={src} type='video/mp4'></source>
-                        </video>
-                    </Slide>
+                <Col lg={3} className='video-section' ref={video.ref}>
+                    <video autoPlay loop muted ref={videoRef}>
+                        <source src={src} type='video/mp4'></source>
+                    </video>
                 </Col>
                 <Col className="text-section">
                     <Slide direction='right' duration={2000} triggerOnce={false}>
