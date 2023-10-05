@@ -1,81 +1,55 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'Adieu';
+@font-face {
+    font-family: 'helvetica';
+    src: url(./components/assets/fonts/HelveticaNeue-Medium.woff) format('woff');
 }
 
+* {
+    font-family: 'helvetica';
+}
+
+:root {
+    --primary-gradient: radial-gradient(circle, rgba(243, 7, 7, 1) 0%, rgba(200, 38, 38, 1) 45%, rgba(163, 20, 20, 1) 100%);
+    --primary-color-hover: rgb(209, 28, 28);
+    --primary-color: rgb(255, 2, 2);
+}
 
 /* Theme colors */
-.App {
-    background: linear-gradient(90deg, rgba(255, 128, 0, 0.9697128851540616) 0%, rgba(255, 183, 0, 1) 100%, rgba(255, 196, 0, 1) 100%);
-    overflow-y: scroll;
-    overflow-x: hidden;
+.App,
+.navbar,
+.footer {
+    background: var(--primary-gradient);
 }
 
-.App .navbar {
-    background: linear-gradient(90deg, rgba(255, 128, 0, 0.9697128851540616) 0%, rgba(255, 183, 0, 1) 100%, rgba(255, 196, 0, 1) 100%);
+.nav-link:hover,
+.recreationalDance:hover,
+.professionalDance:hover {
+    background-color: var(--primary-color-hover);
 }
 
-.App .footer {
-    background: linear-gradient(90deg, rgba(255, 128, 0, 0.9697128851540616) 0%, rgba(255, 183, 0, 1) 100%, rgba(255, 196, 0, 1) 100%);
-}
-
-.App .nav-link:hover {
-    background-color: rgb(235, 172, 70);
-}
-
-.App .navbar-nav .nav-link.active,
-.App .navbar-nav .nav-link.show {
-    background-color: rgb(255 158 2);
-}
-
-.App .about-videoCard {
-    background-color: #eb750f;
-}
-
-.App .recreationalDance,
-.App .professionalDance {
-    background-color: #d77a0a;
-}
-
-.App .recreationalDance:hover,
-.App .professionalDance:hover {
-    background-color: #e88104;
-}
-
-.App .container .btn::before .App .container .btn::after {
-    background: rgb(183, 81, 8);
-}
-
-.App .container .btn:nth-child(1):before,
-.App .container .btn:nth-child(1)::after {
-    background: #ed761b;
-    box-shadow: 0 0 5px #9f4311,
-        0 0 15px #9f4311,
-        0 0 30px #9f4311,
-        0 0 60px #9f4311;
-}
-
-.App .carousel {
-    background-color: #e2710f;
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show,
+.about-videoCard,
+.recreationalDance,
+.professionalDance,
+.crousel,
+.container .btn::before,
+.container .btn::after {
+    background-color: var(--primary-color);
 }
 
 /* Background Mouse Follower */
 .majorFollower {
     width: 300px;
     height: 300px;
-    background: rgb(99, 99, 120);
+    background: rgb(185, 20, 20);
     border-radius: 50%;
     position: absolute;
     will-change: transform;
     border-radius: 50%;
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    opacity: 30%;
+    opacity: 80%;
     z-index: 0;
-    filter: blur(20px);
+    filter: blur(15px);
 }
 
 /* Navbar styles *
