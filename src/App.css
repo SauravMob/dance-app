@@ -9,99 +9,49 @@ h6 {
 
 
 /* Theme colors */
-.App-dark {
-    background: linear-gradient(90deg, rgba(12, 8, 80, 1) 0%, rgba(59, 64, 138, 1) 44%, rgba(63, 77, 128, 1) 90%, rgba(63, 87, 150, 1) 100%);
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-
-.App-light {
+.App {
     background: linear-gradient(90deg, rgba(255, 128, 0, 0.9697128851540616) 0%, rgba(255, 183, 0, 1) 100%, rgba(255, 196, 0, 1) 100%);
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
-.App-light .navbar {
+.App .navbar {
     background: linear-gradient(90deg, rgba(255, 128, 0, 0.9697128851540616) 0%, rgba(255, 183, 0, 1) 100%, rgba(255, 196, 0, 1) 100%);
 }
 
-.App-dark .navbar {
-    background: linear-gradient(90deg, rgba(12, 8, 80, 1) 0%, rgba(59, 64, 138, 1) 44%, rgba(63, 77, 128, 1) 90%, rgba(63, 87, 150, 1) 100%);
-}
-
-.App-light .footer-light {
+.App .footer {
     background: linear-gradient(90deg, rgba(255, 128, 0, 0.9697128851540616) 0%, rgba(255, 183, 0, 1) 100%, rgba(255, 196, 0, 1) 100%);
 }
 
-.App-dark .footer-dark {
-    background: linear-gradient(90deg, rgba(12, 8, 80, 1) 0%, rgba(59, 64, 138, 1) 44%, rgba(63, 77, 128, 1) 90%, rgba(63, 87, 150, 1) 100%);
-}
-
-.App-light .nav-link:hover {
+.App .nav-link:hover {
     background-color: rgb(235, 172, 70);
 }
 
-.App-dark .nav-link:hover {
-    background-color: rgb(113, 89, 163);
-}
-
-.App-dark .navbar-nav .nav-link.active,
-.App-dark .navbar-nav .nav-link.show {
-    background-color: rgb(31 0 94);
-}
-
-.App-light .navbar-nav .nav-link.active,
-.App-light .navbar-nav .nav-link.show {
+.App .navbar-nav .nav-link.active,
+.App .navbar-nav .nav-link.show {
     background-color: rgb(255 158 2);
 }
 
-.App-dark .about-videoCard {
-    background-color: #8309c0;
-}
-
-.App-light .about-videoCard {
+.App .about-videoCard {
     background-color: #eb750f;
 }
 
-.App-dark .recreationalDance,
-.App-dark .professionalDance {
-    background-color: #522170;
-}
-
-.App-dark .recreationalDance:hover,
-.App-dark .professionalDance:hover {
-    background-color: #250d34;
-}
-
-.App-light .recreationalDance,
-.App-light .professionalDance {
+.App .recreationalDance,
+.App .professionalDance {
     background-color: #d77a0a;
 }
 
-.App-light .recreationalDance:hover,
-.App-light .professionalDance:hover {
+.App .recreationalDance:hover,
+.App .professionalDance:hover {
     background-color: #e88104;
 }
 
-.App-dark .container .btn::before .App-dark .container .btn::after {
-    background: rgb(58, 8, 183);
-}
-
-.App-light .container .btn::before .App-light .container .btn::after {
+.App .container .btn::before .App .container .btn::after {
     background: rgb(183, 81, 8);
 }
 
-.App-dark .container .btn:nth-child(1):before,
-.App-dark .container .btn:nth-child(1)::after {
-    background: #661eec;
-    box-shadow: 0 0 5px #39166d,
-        0 0 15px #39166d,
-        0 0 30px #39166d,
-        0 0 60px #39166d;
-}
-
-.App-light .container .btn:nth-child(1):before,
-.App-light .container .btn:nth-child(1)::after {
+.App .container .btn:nth-child(1):before,
+.App .container .btn:nth-child(1)::after {
     background: #ed761b;
     box-shadow: 0 0 5px #9f4311,
         0 0 15px #9f4311,
@@ -109,11 +59,7 @@ h6 {
         0 0 60px #9f4311;
 }
 
-.App-dark .carousel {
-    background-color: #53178e;
-}
-
-.App-light .carousel {
+.App .carousel {
     background-color: #e2710f;
 }
 
@@ -132,117 +78,7 @@ h6 {
     filter: blur(20px);
 }
 
-/* Navbar styles */
-
-/* Toggle Switch */
-.switch {
-    position: absolute;
-    display: inline-block;
-    width: 60px;
-    height: 30px;
-    top: 26px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #73C0FC;
-    transition: 1s;
-    border-radius: 30px;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 28px;
-    width: 28px;
-    border-radius: 20px;
-    left: 2px;
-    bottom: 1px;
-    z-index: 2;
-    background-color: #e8e8e8;
-    transition: .4s;
-}
-
-.sun svg {
-    position: absolute;
-    top: 4px;
-    left: 32px;
-    z-index: 1;
-    width: 24px;
-    height: 24px;
-}
-
-.moon svg {
-    fill: #73C0FC;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    z-index: 1;
-    width: 20px;
-    height: 20px;
-}
-
-.switch:hover .sun svg {
-    animation: rotate 15s linear infinite;
-}
-
-@keyframes rotate {
-
-    0% {
-        transform: rotate(0);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.switch:hover .moon svg {
-    animation: tilt 5s linear infinite;
-}
-
-@keyframes tilt {
-
-    0% {
-        transform: rotate(0deg);
-    }
-
-    25% {
-        transform: rotate(-10deg);
-    }
-
-    75% {
-        transform: rotate(10deg);
-    }
-
-    100% {
-        transform: rotate(0deg);
-    }
-}
-
-.input:checked+.slider {
-    background-color: #183153;
-}
-
-.input:focus+.slider {
-    box-shadow: 0 0 1px #183153;
-}
-
-.input:checked+.slider:before {
-    transform: translateX(30px);
-}
-
+/* Navbar styles *
 /* Nav styles */
 .navbar {
     background: transparent !important;

@@ -18,12 +18,12 @@ const Carousel = () => {
       <div className="ambassador-slider" id="slider">
         {imgArray.map((val, key) => {
           return (
-            <input type="radio" name="slider" id={`s${key}`} className="radiobtn" checked={activeCarousel === key} onChange={() => setActiveCarousel(key)} />
+            <input type="radio" name="slider" key={key} id={`s${key}`} className="radiobtn" checked={activeCarousel === key} onChange={() => setActiveCarousel(key)} />
           )
         })}
         {imgArray.map((value, key) => {
           return (
-            <label htmlFor={`s${key}`} id={`slide${key}`} className={`label${key}`} onClick={() => setActiveCarousel(key)}>
+            <label key={key} htmlFor={`s${key}`} id={`slide${key}`} className={`label${key}`} onClick={() => setActiveCarousel(key)}>
               <div className="ambassador-slider-img">
                 <img src={value} alt={value} />
               </div>

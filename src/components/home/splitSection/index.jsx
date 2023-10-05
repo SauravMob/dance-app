@@ -1,11 +1,9 @@
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
-import leftNight from '../../assets/images/left-night.jpg'
-import rightNight from '../../assets/images/right-night.jpg'
 import leftDay from '../../assets/images/left-day.jpg'
 import rightDay from '../../assets/images/right-day.jpg'
 
-const SplitSection = ({ theme }) => {
+const SplitSection = () => {
     return (
         <Row className="split-section">
             <Col className="recreationalDance">
@@ -15,7 +13,7 @@ const SplitSection = ({ theme }) => {
                     </h2>
                 </Row>
                 <Row className="splitSection-image mt-3">
-                    <img src={theme === "dark" ? leftNight : leftDay} height="100%" width="100%" />
+                    <img src={leftDay} height="100%" width="100%" />
                 </Row>
                 <Row className="mt-5">
                     <div className="container">
@@ -30,7 +28,7 @@ const SplitSection = ({ theme }) => {
                     </h2>
                 </Row>
                 <Row className="splitSection-image mt-3">
-                    <img src={theme === "dark" ? rightNight : rightDay} height="100%" width="100%" />
+                    <img src={rightDay} height="100%" width="100%" />
                 </Row>
                 <Row className="mt-5">
                     <div className="container">

@@ -1,24 +1,19 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import { Fade, Slide } from 'react-awesome-reveal'
 import { Col, Row } from 'react-bootstrap'
 import { useParallax } from 'react-scroll-parallax'
 
 const AboutVideo = ({ src }) => {
 
-    const videoRef = useRef()
     const video = useParallax({
         translateX: [-30, 30]
     })
-
-    useEffect(() => {
-        videoRef.current?.load()
-    }, [src])
 
     return (
         <Fade duration={3000} triggerOnce={false}>
             <Row className='about-videoCard'>
                 <Col lg={3} className='video-section' ref={video.ref}>
-                    <video autoPlay loop muted ref={videoRef}>
+                    <video autoPlay loop muted>
                         <source src={src} type='video/mp4'></source>
                     </video>
                 </Col>

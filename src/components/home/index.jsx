@@ -1,10 +1,9 @@
 import React from 'react'
 import VideoCard from './videoCard/index';
-import universe from '../assets/video/universe.mp4'
 import sunset from '../assets/video/sunset.mp4'
 import { useParallax } from 'react-scroll-parallax';
 
-const Home = ({ theme, device, target }) => {
+const Home = ({ target }) => {
 
     const topLogo = useParallax({
         speed: 20,
@@ -39,7 +38,7 @@ const Home = ({ theme, device, target }) => {
                 </svg>
             </div>
             <div className='video-box' ref={midVideo.ref}>
-                {theme === 'dark' ? <VideoCard src={universe} /> : <VideoCard src={sunset} />}
+                {<VideoCard src={sunset} />}
             </div>
             <div className='bottom-logo' ref={bottomLogo.ref}>
                 <svg style={{ color: 'white', height: '100%', width: '100%' }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 831 402">

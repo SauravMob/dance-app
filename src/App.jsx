@@ -5,7 +5,6 @@ import './App.css'
 import Navbar from './components/navbar/index'
 import Home from './components/home'
 import VideoCard from './components/home/videoCard'
-import universe from './components/assets/video/universe.mp4'
 import sunset from './components/assets/video/sunset.mp4'
 import AboutVideo from './components/home/about/index'
 import Carousel from './components/home/carousel'
@@ -19,8 +18,6 @@ const App = () => {
   const [ref, { left, top }] = useMeasure()
   const target = useRef()
 
-  const [theme, setTheme] = useState('dark')
-  const [device, setDevice] = useState()
   const [scrollY, setScrollY] = useState(0)
 
   // Variables
@@ -31,23 +28,6 @@ const App = () => {
     xy: [0, 0],
     config: { mass: 10, tension: 250, friction: 30 },
   }))
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setDevice("MOBILE")
-      } else {
-        setDevice("LAPTOP")
-      }
-    }
-
-    handleResize()
-    window.addEventListener("resize", handleResize)
-
-    return () => {
-      window.removeEventListener("resize", handleResize)
-    }
-  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,11 +44,6 @@ const App = () => {
     api.start({ xy: [e.clientX - left, e.clientY - top] })
   }
 
-  const handleTheme = (e) => {
-    if (e.target.checked) setTheme('dark')
-    else setTheme('light')
-  }
-
   const videoCardRef = useParallax({
     targetElement: target.current,
     opacity: [0, 10]
@@ -76,29 +51,29 @@ const App = () => {
 
   return (
     <>
-      <div ref={ref} className={`App-${theme}`} onMouseMove={handleMouseMove}>
+      <div ref={ref} className='App' onMouseMove={handleMouseMove}>
         {trail.map((props, index) => (
           <animated.div className='majorFollower' key={index} style={{ transform: props.xy.to(trans) }} />
         ))}
-        <Navbar device={device} theme={theme} handleTheme={handleTheme} />
+        <Navbar />
         <Fragment>
           <Element name="home" className="home">
-            <Home theme={theme} device={device} target={target} />
+            <Home target={target} />
           </Element>
         </Fragment>
         <Fragment>
           <div className='videoCard' ref={videoCardRef.ref}>
-            {theme === 'dark' ? <VideoCard src={universe} /> : <VideoCard src={sunset} />}
+            <VideoCard src={sunset} />
           </div>
         </Fragment>
         <Fragment>
           <Element name="about" className="about">
-            {theme === 'dark' ? <AboutVideo src={universe} /> : <AboutVideo src={sunset} />}
+            <AboutVideo src={sunset} />
           </Element>
         </Fragment>
         <Fragment>
           <Element name="splitSection" className="splitSection">
-            <SplitSection theme={theme} device={device} />
+            <SplitSection />
           </Element>
         </Fragment>
         <Fragment>
@@ -107,7 +82,7 @@ const App = () => {
           </Element>
         </Fragment>
         <Fragment>
-          <Footer theme={theme} device={device} />
+          <Footer />
         </Fragment>
       </div>
     </>
