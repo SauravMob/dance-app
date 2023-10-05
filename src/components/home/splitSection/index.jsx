@@ -17,7 +17,7 @@ const SplitSection = () => {
                 </Row>
                 <Row className="mt-5">
                     <div className="container">
-                        <div className="btn"><a href="#">Take a class</a></div>
+                        <div className="btn"><a href="#">Workshops and Regulars</a></div>
                     </div>
                 </Row>
             </Col>

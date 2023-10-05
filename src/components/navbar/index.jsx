@@ -17,7 +17,7 @@ const index = () => {
                         duration={500}
                         className='nav-link'
                     >
-                        Let's explore
+                        Who is DMK
                     </Link>
                     <Link
                         activeClass="active"
@@ -27,7 +27,7 @@ const index = () => {
                         duration={500}
                         className='nav-link'
                     >
-                        Let's meet
+                        Groove with me
                     </Link>
                     <Link
                         activeClass="active"
@@ -37,7 +37,7 @@ const index = () => {
                         duration={500}
                         className='nav-link'
                     >
-                        Let's attend
+                        A little more
                     </Link>
                     <Link
                         activeClass="active"
@@ -47,7 +47,7 @@ const index = () => {
                         duration={500}
                         className='nav-link'
                     >
-                        Let's dance
+                        Let's meet
                     </Link>
                 </Nav>
             </Navbar.Collapse>

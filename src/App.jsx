@@ -4,14 +4,10 @@ import useMeasure from 'react-use-measure'
 import './App.css'
 import Navbar from './components/navbar/index'
 import Home from './components/home'
-import VideoCard from './components/home/videoCard'
-import sunset from './components/assets/video/sunset.mp4'
-import AboutVideo from './components/home/about/index'
 import Carousel from './components/home/carousel'
 import SplitSection from './components/home/splitSection'
 import Footer from './components/footer'
 import { Element } from 'react-scroll'
-import { useParallax } from 'react-scroll-parallax'
 
 const App = () => {
 
@@ -44,11 +40,6 @@ const App = () => {
     api.start({ xy: [e.clientX - left, e.clientY - top] })
   }
 
-  const videoCardRef = useParallax({
-    targetElement: target.current,
-    opacity: [0, 10]
-  })
-
   return (
     <>
       <div ref={ref} className='App' onMouseMove={handleMouseMove}>
@@ -59,16 +50,6 @@ const App = () => {
         <Fragment>
           <Element name="home" className="home">
             <Home target={target} />
-          </Element>
-        </Fragment>
-        <Fragment>
-          <div className='videoCard' ref={videoCardRef.ref}>
-            <VideoCard src={sunset} />
-          </div>
-        </Fragment>
-        <Fragment>
-          <Element name="about" className="about">
-            <AboutVideo src={sunset} />
           </Element>
         </Fragment>
         <Fragment>

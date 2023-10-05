@@ -3,6 +3,11 @@
     src: url(./components/assets/fonts/HelveticaNeue-Medium.woff) format('woff');
 }
 
+@font-face {
+    font-family: 'adieu';
+    src: url(./components/assets/fonts/Adieu-Regular.woff) format('woff');
+}
+
 * {
     font-family: 'helvetica';
 }
@@ -28,7 +33,6 @@
 
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link.show,
-.about-videoCard,
 .recreationalDance,
 .professionalDance,
 .crousel,
@@ -112,69 +116,14 @@
     height: 40%;
 }
 
-.video-box {
+/* .image-box {
     position: relative;
     top: 5%;
     left: 34%;
     width: 30%;
     height: 35%;
     z-index: 1;
-}
-
-.video-box video {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    box-shadow: 6px 6px 12px #141414, -6px -6px 12px #120c0c;
-    opacity: 0.9;
-    object-fit: cover;
-}
-
-/* VideoCard styles */
-.videoCard {
-    cursor: none;
-    height: 110vh;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.videoCard video {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 180px;
-    box-shadow: 6px 6px 12px #141414, -6px -6px 12px #120c0c;
-    opacity: 0.9;
-}
-
-/* About Section styles */
-.about-videoCard {
-    height: 100vh;
-}
-
-.video-section {
-    padding: 40px;
-    height: 100%;
-}
-
-.video-section video {
-    height: 100%;
-    width: 100%;
-    object-fit: fill;
-    border-radius: 300px;
-    box-shadow: 6px 6px 12px #141414, -6px -6px 12px #120c0c;
-    opacity: 0.9;
-}
-
-.text-section {
-    font-size: 42px;
-    color: #fff;
-    height: 100%;
-    font-weight: 600;
-    font-style: italic;
-    opacity: 0.8;
-    padding: 30px;
-}
+} */
 
 /* Split section styles */
 .split-section {

@@ -1,6 +1,4 @@
 import React from 'react'
-import VideoCard from './videoCard/index';
-import sunset from '../assets/video/sunset.mp4'
 import { useParallax } from 'react-scroll-parallax';
 
 const Home = ({ target }) => {
@@ -17,7 +15,7 @@ const Home = ({ target }) => {
         opacity: [10, 0]
     })
 
-    const midVideo = useParallax({
+    const midImage = useParallax({
         speed: -60,
         targetElement: target.current,
         opacity: [10, 0],
@@ -37,8 +35,7 @@ const Home = ({ target }) => {
                     </g>
                 </svg>
             </div>
-            <div className='video-box' ref={midVideo.ref}>
-                {<VideoCard src={sunset} />}
+            <div className='image-box' ref={midImage.ref}>
             </div>
             <div className='bottom-logo' ref={bottomLogo.ref}>
                 <svg style={{ color: 'white', height: '100%', width: '100%' }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 831 402">
