@@ -15,6 +15,14 @@ const App = () => {
   const target = useRef()
 
   const [scrollY, setScrollY] = useState(0)
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   // Variables
   const trans = (x, y) => `translate3d(${x}px,${y + scrollY}px,0) translate3d(-50%,-50%,0)`
@@ -42,6 +50,9 @@ const App = () => {
 
   return (
     <>
+    {loading ? (
+      <div className='loading'><div className='loader'></div></div>
+      ) : (
       <div ref={ref} className='App' onMouseMove={handleMouseMove}>
         {trail.map((props, index) => (
           <animated.div className='majorFollower' key={index} style={{ transform: props.xy.to(trans) }} />
@@ -66,6 +77,7 @@ const App = () => {
           <Footer />
         </Fragment>
       </div>
+      )}
     </>
   )
 }
